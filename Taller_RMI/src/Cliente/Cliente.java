@@ -10,12 +10,11 @@ public class Cliente {
 		String a = "hola";
 		String b = "mundo";
 		String buffer = null;
-		int res = 0;
 		try {
 			System.out.println("Buscando Objeto ");
 			
 			Interfaz micomparador = (Interfaz) Naming.lookup("rmi://"+ args[0]+"/" + "MiComparador");
-			//Imprime los resultados de cada metodo
+			//Imprime los resultados de cada metodo, se les llama y le pasamos como parametros las palabras anteriormente asignadas
 			System.out.println(micomparador.comparaCadenas(a, b));
 			System.out.println(micomparador.concatenCadenas(a, b, buffer));
 			System.out.println(micomparador.copiaCadena(a, buffer));
