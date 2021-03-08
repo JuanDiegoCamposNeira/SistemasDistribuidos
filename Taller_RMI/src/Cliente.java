@@ -1,4 +1,4 @@
-package Cliente;
+
 
 import java.rmi.registry.*;
 import java.rmi.server.*;
@@ -11,7 +11,7 @@ public class Cliente {
 		String b = "mundo";
 		String buffer = null;
 		try {
-			System.out.println("Buscando Objeto ");
+			System.out.println("Buscando Objeto\n");
 			
 			Interfaz micomparador = (Interfaz) Naming.lookup("rmi://"+ args[0]+"/" + "MiComparador");
 			//Imprime los resultados de cada metodo, se les llama y le pasamos como parametros las palabras anteriormente asignadas

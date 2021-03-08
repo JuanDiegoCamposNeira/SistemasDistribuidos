@@ -1,4 +1,4 @@
-package Cliente;
+
 
 public interface Interfaz extends java.rmi.Remote{
 	public boolean comparaCadenas(String a, String b) throws java.rmi.RemoteException;

@@ -1,8 +1,7 @@
-package Servidor;
+
 
 import java.rmi.*;
 import java.rmi.server.*;
-
 
 public class Servidor {
 	public static void main(String args[]) {
