@@ -1,7 +1,11 @@
+/*
+Autores : 
+- Simón Dávila Saravia
+- Jose Mario Arias Acevedo
+- Juan Diego Campos Neira
+*/
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
-
-
 
 public class ObjetoRemoto extends UnicastRemoteObject implements Interfaz{
 	
