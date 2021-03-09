@@ -1,5 +1,3 @@
-
-
 import java.rmi.registry.*;
 import java.rmi.server.*;
 import java.rmi.*;
@@ -10,9 +8,10 @@ public class Cliente {
 		String a = "hola";
 		String b = "mundo";
 		String buffer = null;
+
 		try {
 			System.out.println("Buscando Objeto\n");
-			
+			Registry registry = LocateRegistry.getRegistry("localhost", 1099);
 			Interfaz micomparador = (Interfaz) Naming.lookup("rmi://"+ args[0]+"/" + "MiComparador");
 			//Imprime los resultados de cada metodo, se les llama y le pasamos como parametros las palabras anteriormente asignadas
 			System.out.println(micomparador.comparaCadenas(a, b));
