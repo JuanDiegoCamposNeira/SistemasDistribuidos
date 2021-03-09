@@ -1,3 +1,9 @@
+/*
+Autores : 
+- Simón Dávila Saravia
+- Jose Mario Arias Acevedo
+- Juan Diego Campos Neira
+*/
 import java.rmi.registry.*;
 import java.rmi.server.*;
 import java.rmi.*;
