@@ -49,7 +49,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 480,
-											"top": -80,
+											"top": -96,
 											"height": 13
 										},
 										{
@@ -60,8 +60,8 @@
 											},
 											"font": "Arial;13;1",
 											"left": 517,
-											"top": 199,
-											"width": 87,
+											"top": 191,
+											"width": 179.58154296875,
 											"height": 13,
 											"text": "Libro"
 										},
@@ -74,7 +74,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 480,
-											"top": -80,
+											"top": -96,
 											"width": 153.15625,
 											"height": 13,
 											"text": "(from Diagrama de clases)"
@@ -88,15 +88,15 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 480,
-											"top": -80,
+											"top": -96,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 512,
-									"top": 192,
-									"width": 97,
+									"top": 184,
+									"width": 189.58154296875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF4mMPNMA6YOcE="
@@ -132,8 +132,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 517,
-											"top": 222,
-											"width": 87,
+											"top": 214,
+											"width": 179.58154296875,
 											"height": 13,
 											"text": "-Título: String",
 											"horizontalAlignment": 0
@@ -149,8 +149,8 @@
 											},
 											"font": "Arial;13;0",
 											"left": 517,
-											"top": 237,
-											"width": 87,
+											"top": 229,
+											"width": 179.58154296875,
 											"height": 13,
 											"text": "-ISBN: String",
 											"horizontalAlignment": 0
@@ -166,18 +166,35 @@
 											},
 											"font": "Arial;13;0",
 											"left": 517,
-											"top": 252,
-											"width": 87,
+											"top": 244,
+											"width": 179.58154296875,
 											"height": 13,
 											"text": "-Autor: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF4n3NbRhsxT7Q=",
+											"_parent": {
+												"$ref": "AAAAAAF4mMPNMQ6cqeU="
+											},
+											"model": {
+												"$ref": "AAAAAAF4n3NbPRsux3I="
+											},
+											"font": "Arial;13;0",
+											"left": 517,
+											"top": 259,
+											"width": 179.58154296875,
+											"height": 13,
+											"text": "-Cantidad_Ejemplares: Integer",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 512,
-									"top": 217,
-									"width": 97,
-									"height": 53
+									"top": 209,
+									"width": 189.58154296875,
+									"height": 68
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -190,8 +207,8 @@
 									},
 									"font": "Arial;13;0",
 									"left": 512,
-									"top": 270,
-									"width": 97,
+									"top": 277,
+									"width": 189.58154296875,
 									"height": 10
 								},
 								{
@@ -206,7 +223,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 240,
-									"top": -40,
+									"top": -48,
 									"width": 10,
 									"height": 10
 								},
@@ -222,7 +239,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 240,
-									"top": -40,
+									"top": -48,
 									"width": 10,
 									"height": 10
 								}
@@ -230,9 +247,9 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 512,
-							"top": 192,
-							"width": 97,
-							"height": 88,
+							"top": 184,
+							"width": 189.58154296875,
+							"height": 103,
 							"nameCompartment": {
 								"$ref": "AAAAAAF4mMPNMA6XcHo="
 							},
@@ -3634,6 +3651,16 @@
 							"name": "Autor",
 							"visibility": "private",
 							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF4n3NbPRsux3I=",
+							"_parent": {
+								"$ref": "AAAAAAF4mMPNKg6U/jo="
+							},
+							"name": "Cantidad_Ejemplares",
+							"visibility": "private",
+							"type": "Integer"
 						}
 					]
 				},
@@ -17709,9 +17736,9 @@
 												"$ref": "AAAAAAF4mRx59VBUvQw="
 											},
 											"font": "Arial;13;0",
-											"left": 32.72998046875,
+											"left": 30.55908203125,
 											"top": 13,
-											"width": 190.33154296875,
+											"width": 173.94189453125,
 											"height": 13,
 											"text": "Solicitud de préstamo de un libro"
 										},
@@ -17724,7 +17751,7 @@
 											"font": "Arial;13;1",
 											"left": 13,
 											"top": 13,
-											"width": 14.72998046875,
+											"width": 12.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -19019,7 +19046,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF4mRx59VBRiuA="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -19027,7 +19055,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF4mRx59VBRiuA="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -19035,7 +19064,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF4mRx59VBRiuA="
 					},
-					"name": "Role3"
+					"name": "Role3",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -19043,7 +19073,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF4mRx59VBRiuA="
 					},
-					"name": "Role4"
+					"name": "Role4",
+					"type": ""
 				}
 			]
 		}

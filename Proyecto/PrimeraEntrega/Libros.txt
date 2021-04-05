@@ -1,0 +1,7 @@
+La biblia,111111111,Varios,3,1
+Mobby Dick,222222222,Un señor,3,1
+La cabaña,333333333,Otro señor,2,0
+Narnia,444444444,Cs Lewis,14,1
+100 años de soledad,555555555,Gabriel Garcia Marquez,3,2
+El coronel no tiene quien le escriba,666666666,Gabriel Gabriel Marquez,3,2
+El principito, 777777777,Otro señor más,4,4

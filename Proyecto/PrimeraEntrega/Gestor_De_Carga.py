@@ -1,12 +1,26 @@
-#   Hello World server in Python
-#   Binds REP socket to tcp://*:5555
-#   Expects b"Hello" from client, replies with b"World"
-#
+"""
+    Autores: 
+        - Simón Dávila Saravia
+        - Jose Mario Árias Acevedo 
+        - Juan Diego Campos Neira
+"""
+
+"""-----------------------------------------------
+-------------    Gestor de carga    -------------- 
+-----------------------------------------------"""
 
 import time
 import zmq
 
+# Library configurations 
+context = zmq.Context() # Get the context
+socket = context.socket(zmq.REP) # Set the socket to be a REPLY socket  
+socket.bind("tcp://25.114.38.38:5555") # Bind the socket with an IPv4 adress
 
+
+# Function to update the state of a book in the Data Base
+# TO DO : This function should send a message to other Load Manager (GC) 
+#         in order to update the other DB (replica) 
 def actualizar_bd(peticion : str, libro : str): 
     # Open file
     books = open("Libros.txt", "r")
@@ -47,24 +61,31 @@ def actualizar_bd(peticion : str, libro : str):
     books = open("Libros.txt", "w")
     for book in books_temp: 
         books.write(book + "\n") 
+    # Eof
     # Close the file 
     books.close()
 # Eof
 
-context = zmq.Context()
-socket = context.socket(zmq.REP)
-socket.bind("tcp://25.114.38.38:5555")
+# Main 
+if __name__ == "__main__":
+    # Initialize server
+    while True:
+        # Wait for next request from client
+        message = socket.recv()
+        # Print the message recived
+        print(f"Received request: {message}")
 
-while True:
-    #  Wait for next request from client
-    message = socket.recv()
-    print(f"Received request: {message}")
-    message = str(message)
-    message = message[2:len(message)-3]
-    peticion = message.split(" ",1)
-    libro = peticion[1]
-    print(peticion[0],libro)
-    actualizar_bd(peticion[0],libro)
+        # Make the substring of the message
+        message = str(message)
+        message = message[2 : len(message) - 3]
+        peticion = message.split(" ", 1)
+        libro = peticion[1]
 
-    #  Send reply back to client
-    socket.send(b"Peticion procesada por mi chulo sin h")
+        # Process the client request and update the state of the book in the DB
+        actualizar_bd(peticion[0],libro)
+
+        # Send reply back to client
+        server_response = "Petición de " + str(peticion[0]) + " procesada con éxito"
+        socket.send(bytes(server_response, 'utf-8'))
+    # Eow
+# Eom 
