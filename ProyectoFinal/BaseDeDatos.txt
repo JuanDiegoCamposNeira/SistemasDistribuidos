@@ -1,0 +1,8 @@
+# Nombre_libro, Id, Ejemplares_Disponibles
+La biblia,111,Apostoles,3
+Mobby Dick,222,Herman Melville,3
+La cabaña,333,William Paul Young,2
+Narnia,444,Cs Lewis,14
+100 años de soledad,555,Gabriel Garcia Marquez,1
+El coronel no tiene quien le escriba,666,Gabriel Garcia Marquez,3
+El principito,777,Antoine de Saint-Exupéry,4
