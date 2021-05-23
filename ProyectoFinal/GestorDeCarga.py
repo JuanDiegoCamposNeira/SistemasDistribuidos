@@ -15,11 +15,11 @@ import sys
 #------------------------------------------------
 #                Validations 
 #------------------------------------------------
-# Validate port passed as parameter
-if len(sys.argv) != 4: 
-    print('Parámetros de ejecución inválidos, ejecución válida : ')
-    print('Python3 GestorDeCarga.py < DIRECCIÓN_PUB_PROCESOS > < DIRECCIÓN_CLIENTE > < NÚMERO_SEDE >')
-    exit()
+# # Validate port passed as parameter
+# if len(sys.argv) != 4: 
+#     print('Parámetros de ejecución inválidos, ejecución válida : ')
+#     print('Python3 GestorDeCarga.py < DIRECCIÓN_PUB_PROCESOS > < DIRECCIÓN_CLIENTE > < NÚMERO_SEDE >')
+#     exit()
 
 #------------------------------------------------
 #                 Variables
@@ -76,7 +76,7 @@ def handle_request(request_type: str, book: str) -> bool:
 #------------------------------------------------
 if __name__ == '__main__': 
 
-    # Register process
+    #---------  Register process  ---------
     register_message = 'registro,gestor_carga,' + branch + ',' +  pub_processes_address + ',' + client_address
     response = ''
     while response != 'ok': 
@@ -86,7 +86,7 @@ if __name__ == '__main__':
         if response != 'ok': 
             time.sleep( 2 )
 
-    # Request nedded addresses
+    #---------  Request nedded addresses  ---------
     request_message = 'peticion,gestor_carga,' + branch + ',' + 'devolucion:pub_manager_address,' + 'renovacion:pub_manager_address,' + 'solicitud:pub_manager_address'
     register_socket.send( request_message.encode('utf-8') )
     response = register_socket.recv().decode('utf-8').split(',')
@@ -104,17 +104,19 @@ if __name__ == '__main__':
     print(f'|                Sede #{ branch }                    |')
     print('---------------------------------------------')
 
-    # pub_processes_socket.send('DevolverLibro,algo'.encode('utf-8'))
-
+    #---------  Serve incomming requests  ---------
     while True: 
         #----------   Wait for the next request   ----------
         print('Esperando solicitud de cliente ... ') 
-        request = client_socket.recv().decode('utf-8') # recv() will block the process until it receives a request
+        request_type, book = client_socket.recv().decode('utf-8').split(',') # recv() will block the process until it receives a request
         print('Recibida.')
+
+        #-----------  Load manager failure  ---------
+        if book == 'load_manager_fail': 
+            exit()
 
         #-----------   Handle request   ------------
         success = False
-        request_type, book = request.split(',')
         # Handle request
         success = handle_request(request_type, book) 
 

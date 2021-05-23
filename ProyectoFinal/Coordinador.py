@@ -61,8 +61,6 @@ rep_processes_socket.bind( f'tcp://*:{ REP_PROCESSES_PORT }' )
 register_socket = context.socket( zmq.REQ )
 register_socket.connect( 'tcp://25.0.228.65:6000' )
 
-
-
 #------------------------------------------------
 #                   Main 
 #------------------------------------------------
@@ -93,7 +91,6 @@ if __name__ == '__main__':
         # Eof
     # Eof
     sub_processes_socket.subscribe( ''.encode('utf-8') )
-
 
     # Poller configuration 
     poller = zmq.Poller()

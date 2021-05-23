@@ -21,10 +21,10 @@ import sys
 #                Validations 
 #------------------------------------------------
 # Validate addresses passed as parameters
-if len(sys.argv) != 4: 
-    print('Parámetros de ejecución inválidos, ejecución válida : ')
-    print('python3 Proceso_Devolucion.py < DIRECCIÓN_PUB_GESTOR > < DIRECCÓN_PUB_COORDINADOR > < NÚMERO_SEDE >') 
-    exit()
+# if len(sys.argv) != 4: 
+#     print('Parámetros de ejecución inválidos, ejecución válida : ')
+#     print('python3 Proceso_Devolucion.py < DIRECCIÓN_PUB_GESTOR > < DIRECCÓN_PUB_COORDINADOR > < NÚMERO_SEDE >') 
+#     exit()
 
 #------------------------------------------------
 #                 Variables
@@ -50,6 +50,11 @@ coordinator_pub_socket.bind( f'tcp://*:{ PUB_COORDINATOR_PORT }' )
 # Socket to publish to load manager
 pub_load_manager_socket = context.socket( zmq.PUB )
 pub_load_manager_socket.bind( f'tcp://*:{ PUB_LOAD_MANAGER_PORT }' )
+
+# Socket to request to primary replica manager
+primary_replica_address = '25.0.228.65:9999'
+req_primary_replica_socket = context.socket( zmq.REQ )
+req_primary_replica_socket.connect( f'tcp://{ primary_replica_address }' ) 
 
 # Socket to register process
 register_socket = context.socket( zmq.REQ )
@@ -88,9 +93,14 @@ if __name__ == '__main__':
     req_coordinator_socket.connect( f'tcp://{ coordinator_address}' )
 
     # Socket to subscribe to load manager
-    load_manager_address = response[1].split(' ')[1]
     sub_load_manager_socket = context.socket( zmq.SUB )
+    # Subscribe to primary Load manager
+    load_manager_address = response[1].split(' ')[1]
     sub_load_manager_socket.connect( f'tcp://{ load_manager_address }' )
+    # Subscribe to backup load manager
+    backup_load_manager_address = '25.0.228.65:2999'
+    sub_load_manager_socket.connect( f'tcp://{ backup_load_manager_address }' )
+    # Filter messages 
     topic_filter = 'RenovarLibro'.encode('utf-8')
     sub_load_manager_socket.subscribe( topic_filter )
 
@@ -119,13 +129,18 @@ if __name__ == '__main__':
                 time.sleep( 2 )
 
         # Modify DataBase
-        print('Modificando Base de Datos', end=' ... ')
-        modifyDatabaseDistributed(book)
-        print('Base de datos modificada')
+        print('Enviando solicitud a réplica primaria ...')
+        # modifyDatabaseDistributed(book)
+        # book = '12'
+        message = 'renovacion,' + book
+        req_primary_replica_socket.send( message.encode('utf-8') )
+        print('Envidada.')
+        print('Esperando respuesta de réplica primaria ...')
+        response = req_primary_replica_socket.recv().decode('utf-8')
+        print('Respuesta recibida [%s]' % response)
 
         # Send message to coordinator to free DB resource
         print('Enviando mensaje para liberar BD ... ')
-        time.sleep( 4 )
         coordinator_pub_socket.send('Free resource'.encode('utf-8'))
         print('Enviado')
 

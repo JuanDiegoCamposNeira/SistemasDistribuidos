@@ -19,17 +19,35 @@ import re
 #------------------------------------------------
 #                Variables 
 #------------------------------------------------
-REQUEST_TIMEOUT = 3000 
+REQUEST_TIMEOUT = 10000 
 REQUEST_RETRIES = 3
-SERVER_ENDPOINT = ''
+# Branches IP address
+branches = [ '-1', '25.0.228.65', '25.0.228.65' ]
+# Addressed from load managers
+load_managers_addresses = [ '-1', [], [] ]
+# Load managers, branch 1
+load_managers_addresses[1].append( branches[1] + ':5551' ) # Primary load manager
+load_managers_addresses[1].append( branches[1] + ':5550' ) # Backup load manager
+# Load managers, branch 2
+load_managers_addresses[2].append( branches[2] + ':5551' ) # Primary load manager
+load_managers_addresses[2].append( branches[2] + ':5550' ) # Backup load manager
+
+current_socket_connection = ''     # Socket connection
+is_socket_connected = False        # 
 
 #------------------------------------------------
 #                 Configurations
 #------------------------------------------------
+# Context
 context = zmq.Context()            # Define context
-socket = context.socket(zmq.REQ)   # Define socket and it's action, in this case is REQUEST 
-current_socket_connection = ''     # Socket connection
-is_socket_connected = False        # 
+
+# Socket to communicate with branches (load managers)
+socket = context.socket( zmq.REQ )   # Define socket and it's action, in this case is REQUEST 
+socket.RCVTIMEO = REQUEST_TIMEOUT     # Set max limit to wait for a response 
+
+# Socket to register process
+register_socket = context.socket( zmq.REQ )
+register_socket.connect( 'tcp://25.0.228.65:6000' )
 
 #------------------------------------------------
 #               Functions 
@@ -40,25 +58,49 @@ def print_warning(message: str):
     print('* %s' % message)
     print('* ... Por favor intentelo de nuevo ... ')
 
-
 # Handle the client request (return a book, renew a book loan, request a book loan)
-def handle_client_request(option: str, book: str):
+def handle_client_request(option: str, book: str, branch: int, current_socket_connection: str):
+    # Construct request 
     request_type = option
-    # Send reques to server
     request = f'{ request_type },{ book }'
-    socket.send( request.encode('utf-8') )
-    # Wait for server response
-    print('Esperando respuesta de la sede ...')
-    server_response = socket.recv().decode('utf-8')
+    # Try send request to every load manager
+    server_response = ''
+    global socket
+    try: 
+        # Send request to server
+        socket.send( request.encode('utf-8') )
+        print('Esperando respuesta de la sede ...')
+        # Wait for server response
+        server_response = socket.recv().decode('utf-8')
+    except zmq.ZMQError as e: 
+        print('ERROR: ', e)
+        print('Error enviando al Gestor de carga, intentando con otro ... ')
+        # Disconnect to current connection 
+        # socket.disconnect( current_socket_connection )
+        socket.close()
+        # Create new socket
+        socket = context.socket( zmq.REQ )
+        # Connect to the new load manager
+        current_socket_connection = f'tcp://{ load_managers_addresses[branch][1] }'
+        socket.connect( current_socket_connection )
+        # Send request to new load manager
+        socket.send( request.encode('utf-8') )
+        # # Wait for new load manager reponse
+        server_response = socket.recv().decode('utf-8')
+
     print('Respuesta recibida.')
     print(f'Server response ... { server_response }')
-
+    return current_socket_connection
 
 #------------------------------------------------
 #                Main 
 #------------------------------------------------
 if __name__ == '__main__': 
-    # Message to discover how many branches are, and their IPv4 adress
+    #------  Discover how many branches are  -------
+    # message = 'peticion,cliente,' + '1' + 'sedes:all'
+    # register_socket.send( message.encode('utf-8') )
+    # response = register_socket.recv().decode('utf-8')
+    # print('BRANCHES : ', response)
 
     # Ask user for action he wants to perform 
     option = True
@@ -85,7 +127,7 @@ if __name__ == '__main__':
             else: 
                 is_socket_connected = True 
             # Save connection
-            current_socket_connection = 'tcp://localhost:5551'
+            current_socket_connection = f'tcp://{ load_managers_addresses[1][0] }'
             # Connect socket 
             socket.connect(current_socket_connection)
         elif branch == 2: 
@@ -96,7 +138,7 @@ if __name__ == '__main__':
             else: 
                 is_socket_connected = True 
             # Save connection
-            current_socket_connection = 'tcp://localhost:5552'
+            current_socket_connection = f'tcp://{ load_managers_addresses[2][0] }'
             # Connect socket
             socket.connect(current_socket_connection)
         else: 
@@ -147,11 +189,11 @@ if __name__ == '__main__':
             continue
     
         if option == 1:
-            handle_client_request('PrestamoLibro', book)
+            current_socket_connection = handle_client_request('PrestamoLibro', book, branch, current_socket_connection)
         elif option == 2: 
-            handle_client_request('RenovarLibro', book)
+            current_socket_connection = handle_client_request('RenovarLibro', book, branch, current_socket_connection)
         elif option == 3:
-            handle_client_request('DevolverLibro', book)
+            current_socket_connection = handle_client_request('DevolverLibro', book, branch, current_socket_connection)
         else: 
             print_warning('Opción no valida, las únicas opciones válidas son 0, 1, 2 o 3')
             continue

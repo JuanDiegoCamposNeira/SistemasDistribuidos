@@ -1,8 +1,501 @@
-# Nombre_libro, Id, Autor, Ejemplares_Disponibles 
-La biblia,111,Apostoles,4
-Mobby Dick,222,Herman Melville,4
-La cabaña,333,William Paul Young,3
-Narnia,444,Cs Lewis,15
-100 años de soledad,555,Gabriel Garcia Marquez,2
-El coronel no tiene quien le escriba,666,Gabriel Garcia Marquez,4
-El principito,777,Antoine de Saint-Exupéry,5
+# Id, Nombre_Libro, Autor, Ejemplares_Disponibles 
+1,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,5
+2,The Caine Prize for African Writing 2010: 11th Annual Collection,The Caine Prize for African Writing,5
+3,African Folktales,Roger D. Abrahams,5
+4,Unchained Voices: An Anthology of Black Authors in the English-Speaking World of the Eighteenth Century,Vincent Carretta,5
+5,Women Writing Africa: West Africa and the Sahel,Esi Sutherland-Addy,5
+6,10 Years of the Caine Prize for African Writing: Plus Coetzee. Gordimer. Achebe. Okri,The Caine The Caine Prize for African Writing,5
+7,Introduction to African Oral Literature and Performance,Bayo Ogunjimi,5
+8,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,5
+9,Oral Epics from Africa,John William Johnson,5
+10,African Fundamentalism: A Literary and Cultural Anthology of Garvey's Harlem Renaissance,Tony Martin,5
+11,Land Apart: A South African Reader,Various,5
+12,Women Writing Africa: The Eastern Region,Amandina Lihamba,5
+13,Nobody Ever Said AIDS: Poems and Stories from Southern Africa,Nobantu Rasebotsa,5
+14,Step into a World: A Global Anthology of the New Black Literature,Kevin Powell,5
+15,An Anthology of Interracial Literature: Black-White Contacts in the Old World and the New,Werner Sollors,5
+16,The Caine Prize 2009: The Caine Prize for African Writing 10th Annual Collection,New Internationalist,5
+17,Traditions in World Literature: Literature of Africa. Softcover Student Edition,McGraw-Hill,5
+18,Love Child,Gcina Mhlophe,5
+19,Seventh Street Alchemy 2004: A Selection of Works from the Caine Prize for African Writing,Jacana Media,5
+20,Women Writing Africa: The Southern Region: Volume 1,Sheila Meintjes,5
+21,Of Suffocated Hearts and Tortured Souls: Seeking Subjecthood through Madness in Francophone Women's,ValZrie Orlando,5
+22,Less Than One and Double: A Feminist Reading of African Women's Writing,Kenneth W. Harrow,5
+23,The Rienner Anthology of African Literature,Anthonia C. Kalu,5
+24,Oral and Written Expressions of African Cultures,Toyin Falola,5
+25,Jambula Tree and other stories: The Caine Prize for African Writing 8th Annual Collection,Monica Arac de Nyeko,5
+26,Up the Down Escalator,Linda Rode,5
+27,Basali!: Stories by and about Women in Lesotho,K. Limakatso Kendall,5
+28,How God Fix Jonah,Lorenz Graham,5
+29,Glass Jars among Trees,Arja Salafranca,5
+30,Running Towards Us: New Writing from South Africa,Isabel Balseiro,5
+31,Of Suffocated Hearts And Tortured Souls,Valerie Key Orlando,5
+32,An Anthology of Interracial Literature: Black-White Contacts in the Old World and the New,Werner Sollors,5
+33,Among the Blacks,Ron Padgett,5
+34,The Daily Show with Jon Stewart Presents Earth (the Book): A Visitor's Guide to the Human Race,Jon Stewart,5
+35,The Best American Nonrequired Reading 2010,Dave Eggers,5
+36,The Daily Show with Jon Stewart Presents Earth (the Book): A Visitor's Guide to the Human Race,Jon Stewart,5
+37,100 Best-Loved Poems,Philip Smith,5
+38,The Norton Anthology of American Literature. Shorter Seventh Edition. One-Volume Paperback,Wayne Franklin,5
+39,The Best American Poetry 2009,David Wagoner,5
+40,The Oxford Book of American Short Stories,Joyce Carol Oates,5
+41,The Best American Essays 2009,Mary Oliver,5
+42,The Norton Anthology of American Literature. Package 2: Volumes C. D. and E,Jerome Klinkowitz,5
+43,Early African American Classics (Barnes &amp,Barnes & Noble,5
+44,African-American Poetry: An Anthology. 1773-1930,Joan R. Sherman,5
+45,Couldn't Keep It to Myself: Testimonies from Our Imprisoned Sisters,Wally Lamb,5
+46,The Norton Anthology of Poetry. Shorter 5th Edition,Margaret Ferguson,5
+47,The Best American Poetry 2010,Amy Gerstler,5
+48,Classic Slave Narratives: The Life of Olaudah Equiano. The History of Mary Prince. Narrative of the Life of Frederick Douglass. Incidents in the Life of a Slave Girl,Henry Louis Gates Jr.,5
+49,The Best American Nonrequired Reading 2009,Dave Eggers,5
+50,In Fact: The Best of Creative Nonfiction,Lee Gutkind,5
+51,The Best American Essays of the Century,Joyce Carol Oates,5
+52,The Best Loved Poems of the American People,Hazel Felleman,5
+53,The Norton Anthology of American Literature: Volume A: Beginnings to 1820,Wayne Franklin,5
+54,The Norton Anthology of Poetry,Margaret Ferguson,5
+55,The Norton Anthology of African American Literature. Vol. 2,Henry Louis Gates Jr.,5
+56,Poems. Poets. Poetry: An Introduction and Anthology,Helen Vendler,5
+57,The Poets Laureate Anthology,Elizabeth Hun Schmidt,5
+58,The Portable Beat Reader,Various,5
+59,The Best American Short Plays 2008-2009,Barbara Parisi,5
+60,The Gift of Love,Lori Foster,5
+61,One Hundred and One Famous Poems ,Roy Cook,5
+62,The Vintage Book of Contemporary American Poetry,J. D. McClatchy,5
+63,Literature: A Pocket Anthology,R. S. Gwynn,5
+64,I'll Fly Away: Further Testimonies from the Women of York Prison,Wally Lamb,5
+65,American Earth: Environmental Writing Since Thoreau,Bill McKibben,5
+66,Best Poems of the English Language: From Chaucer Through Robert Frost,Harold Bloom,5
+67,Humor Me: An Anthology of Funny Contemporary Writing (Plus Some Great Old Stuff Too),Ian Frazier,5
+68,Coming of Age in America: A Multicultural Anthology,Mary Frosch,5
+69,Three African-American Classics: Up from Slavery. The Souls of Black Folk and Narrative of the Life of Frederick Douglass,Booker T. Washington,5
+70,100 Best African American Poems with CD,Nikki Giovanni,5
+71,Six American Poets: An Anthology,Joel Conarroe,5
+72,Norton Anthology of Literature by Women: The Traditions in English,Sandra M. Gilbert,5
+73,Multicultural Children's Literature: Through the Eyes of Many Children,Donna E. Norton,5
+74,The Voice That Is Great within Us: American Poetry of the Twentieth Century,Hayden Carruth,5
+75,Poems That Touch the Heart,A.L. Alexander,5
+76,I Thought My Father Was God: And Other True Tales from NPR's National Story Project,Paul Auster,5
+77,Listening For God Rdr Vol 4,Paula J. Carlson,5
+78,The American Tradition in Literature (concise) book alone,George Perkins,5
+79,Approaching Literature: Writing. Reading. Thinking,Peter Schakel,5
+80,The Norton Anthology of American Literature: Volume C: 1865-1914,Arnold Krupat,5
+81,American Fantastic Tales Boxed Set,Peter Straub,5
+82,Unsettling America: An Anthology of Contemporary Multicultural Poetry,Maria Mazziotti Gillan,5
+83,Listening For God Reader. Vol 1,Paula J. Carlson,5
+84,Concise Anthology of American Literature,James Leonard,5
+85,The Heath Anthology of American Literature: Contemporary Period (1945 To The Present). Volume E,Paul Lauter,5
+86,The Portable Harlem Renaissance Reader,David Lewis,5
+87,American Short Stories,Bert Hitchcock,5
+88,Great Love Poems,Shane Weller,5
+89,The Harper American Literature. Single Volume Edition,Donald McQuade,5
+90,The Latino Reader: An American Literary Tradition from 1542 to the Present,Margarite Fernandez Olmos,5
+91,Black Nature,Camille T. Dungy,5
+92,Anthology of American Literature Volume II,George McMichael,5
+93,Best Remembered Poems,Martin Gardner,5
+94,Nine Plays of the Modern Theater: Waiting for Godot,Harold Clurman,5
+95,The Norton Anthology of Literature by Women: The Traditions in English. Vol. 2,Sandra M. Gilbert,5
+96,Writing New York: A Literary Anthology,Phillip Lopate,5
+97,The Best American Essays 2009,Mary Oliver,5
+98,The Hudson River Valley Reader,Edward C. Goodman,5
+99,The Best American Poetry 2009,David Wagoner,5
+100,Sudden Fiction Latino: Short-Short Stories from the United States and Latin America,Robert Shapard,5
+101,I Am the Darker Brother: An Anthology of Modern Poems by African Americans,Arnold Adoff,7
+102,Classic American Autobiographies,William L. Andrews,7
+103,Mental Floss: Scatterbrained,Editors Of Mental Floss,17
+104,The Portable Sixties Reader,Ann Charters,9
+105,Modern American Memoirs,Annie Dillard,15
+106,Best American Spiritual Writing 2007,Philip Zaleski,7
+107,The Norton Anthology of American Literature: Volume D: 1914-1945,Jerome Klinkowitz,7
+108,Making Literature Matter: An Anthology for Readers and Writers,John Schilb,7
+109,Luis Valdez - Early Works: Actos. Bernabe and Pensamiento Serpentino,Luis Valdez,7
+110,In Our Own Words: Student Writers at Work,Rebecca Mlynarczyk,7
+111,Touch,Toni Press-Coffman,7
+112,The American Tradition in Literature. Volume 1(book alone),George Perkins,7
+113,The Four Seasons: Poems,J. D. McClatchy,7
+114,The American Stage: Writing on Theater from Washington Irving to Tony Kushner,Lawrence Senelick,7
+115,Bum Rush the Page: A Def Poetry Jam,Tony Medina,7
+116,The Outlaw Bible of American Literature,Alan Kaufmann,7
+117,Mother California: A Story of Redemption Behind Bars,Kenneth E. Hartman,7
+118,The Best American Short Stories 2003,Walter Mosley,7
+119,Spider Woman's Granddaughters: Traditional Tales and Contemporary Writing by Native American Women,Paula Gunn Allen,7
+120,Transforming a Rape Culture,Emilie Buchwald,7
+121,American Food Writing: An Anthology with Classic Recipes,Molly O'Neill,7
+122,Baseball: A Literary Anthology,Nicholas Dawidoff,7
+123,Loving in the War Years: Lo que nunca paso por sus labios,Cherrie Moraga,9
+124,Don't Squat With Your Spurs On: A Cowboy's Guide to Life,Texas Bix Bender,7
+125,Listening For God Reader Volume 3,Paula J. Carlson,7
+126,Fierce Pajamas: An Anthology of Humor Writing from the New Yorker,David Remnick,7
+127,The Top 500 Poems,William Harmon,7
+128,True Crime: An American Anthology,Harold Schechter,7
+129,I Am Not My Breast Cancer: Women Talk Openly about Love and Sex. Hair Loss and Weight Gain. Mothers and Daughters. and Being a Woman with Breast Cancer,Ruth Peltason,7
+130,African American Literature (Penguin Academics Series),Keith Gilyard,7
+131,Anthology of American Literature. Volume I,George McMichael,7
+132,The Heath Anthology of American Literature: Modern Period (1910?1945). Volume D,Kirk Curnutt,7
+133,Poems of New York,Elizabeth Schmidt,7
+134,American Dreams,Sapphire,7
+135,Black Theatre USA. V2: Plays by African Americans 1935-Today. Vol. 2,Ted Shine,7
+136,The Signet Classic Book of American Short Stories,Burton Raffel,7
+137,The American Transcendentalists: Essential Writings,Lawrence Buell,7
+138,Finding Freedom: Writings from Death Row,Jarvis Jay Masters,7
+139,The Best American Short Stories 2004,Lorrie Moore,7
+140,New York Stories: The Best of the City Section of the New York Times,Constance Rosenblum,7
+141,Black Voices: An Anthology of African-American Literature,Various,7
+142,Bordering Fires: The Vintage Book of Contemporary Mexican and Chicano/a Literature,Cristina Garcia,7
+143,The Best American Short Plays 2007-2008,Barbara Parisi,7
+144,Postmodern American Fiction: A Norton Anthology,Paula Geyh,7
+145,Bronx Accent: A Literary and Pictorial History of the Borough,Lloyd Ultan,7
+146,Native American Songs and Poems: An Anthology,Brian Swann,7
+147,The Best American Sports Writing 2008,William Nack,7
+148,The Lost Algonquin Round Table,Nat Benchley,7
+149,Thom Pain (based on nothing),Will Eno,7
+150,Death Blossoms: Reflections from a Prisoner of Conscience,Mumia Abu-Jamal,7
+151,B. O. O. B. S.: A Bunch of Outrageous Breast-Cancer Survivors Tell Their Stories of Courage. Hope and Healing,Ann Kempner Fisher,7
+152,Becoming Americans: Four Centuries of Immigrant Writing,Ilan Stavans,7
+153,Dream Me Home Safely: Writers on Growing Up in America,Susan Richards Shreve,7
+154,The Best American Short Stories 2005,Michael Chabon,8
+155,The Stuffed Owl: An Anthology of Bad Verse,D.B. Wyndham Lewis,7
+156,The American Tradition in Literature. Volume 2 (book alone),George Perkins,7
+157,American Working-Class Literature: An Anthology,Nicholas Coles,7
+158,The Butterfly's Way: Voices from the Haitian Dyaspora in the United States,Edwidge Danticat,7
+159,Bedford Anthology of American Literature: Volume Two: 1865 to Present,Susan Belasco,7
+160,Titanica: The Disaster of the Century in Poetry. Song and Prose,Steven Biel,7
+161,The Unswept Path: Contemporary American Haiku,John Brandi,7
+162,The Vietnam War in American Stories. Songs. and Poems,H. Bruce Franklin,7
+163,The Best American Essays 2008,Adam Gopnik,7
+164,The Best American Poetry 2008,Charles Wright,7
+165,Poems from the Women's Movement,Honor Moore,7
+166,Listening for God: Contemporary Literature And The Life Of Faith: Volume 2,Paula J. Carlson,7
+167,The Norton Anthology of African American Literature,Henry Louis Gates Jr.,7
+168,The Best American Sports Writing 2008,William Nack,7
+169,New Orleans Stories: Great Writers on the City,John Miller,7
+170,Sporting Lives: Metaphor and Myth in American Sports,James W. Pipkin,7
+171,American Literature. Volume II (Penguin Academics Series),William E. Cain,7
+172,After Frost: Anthol Poetry From N E,Henry Lyman,7
+173,To The Shore Once More. Volume II: A Journey Down The Jersey Shore,Frank Finale,7
+174,Winter Song: Christmas Readings,Madeleine L'Engle,7
+175,Rag and Bone Shop of the Heart: A Poetry Anthology,Robert Bly,7
+176,Oxford Book of American Poetry,David Lehman,7
+177,The Portable Jack Kerouac,Jack Kerouac,7
+178,Boricuas: Influential Puerto Rican Writings--- An Anthology,Roberto Santiago,7
+179,Coming of Age in the 21st Century,Mary Frosch,7
+180,Empire City: New York Through the Centuries,Kenneth T. Jackson,7
+181,Erotique Noire: Black Erotica,Miriam Decosta-Willis,7
+182,Short Story Masterpieces,Robert Penn Warren,7
+183,The Best American Short Plays 2006-2007,Barbara Parisi,7
+184,Black on White: Black Writers on What It Means to Be White,David R. Roediger,7
+185,In a Narrow Grave: Essays on Texas,Larry McMurtry,7
+186,Queer 13: Lesbian and Gay Writers Recall Seventh Grade,Clifford Chase,7
+187,Hokum: An Anthology of African-American Humor,Paul Beatty,7
+188,Voices in Our Blood: America's Best on the Civil Rights Movement,Jon Meacham,7
+189,The Complete Works of Kate Chopin,Kate Chopin,7
+190,Literature and the Environment: A Reader on Nature and Culture,Lorraine Anderson,7
+191,The Heath Anthology of American Literature. Concise Edition,Paul Lauter,7
+192,Early American Writing,Various,7
+193,Soulscript: A Collection of Classic African American Poetry,June Jordan,7
+194,The Norton Anthology of Literature by Women: The Traditions in English. Vol. 1,Sandra M. Gilbert,7
+195,Out of Her Mind: Women Writing on Madness,Rebecca Shannonhouse,7
+196,The Wadsworth Themes American Literature Series. 1945-Present. Theme 18: Class Conflicts and the American Dream,Jay Parini,7
+197,Concise Anthology of American Literature,George McMichael,7
+198,Written by Herself: Autobiographies of American Women,Jill Ker Conway,7
+199,Asian American Studies Now: A Critical Reader,Jean Yu-wen Shen Wu,7
+200,Growing Up in the South: An Anthology of Modern Southern Literature,Suzanne Jones,7
+201,American Protest Literature,Zoe Trodd,9
+202,The Vietnam Reader: The Definitive Collection of American Fiction and Nonfiction on the War,Stewart O'Nan,9
+203,Reinventing the Enemy's Language: Contemporary Native Women's Writings of North America,Gloria Bird,9
+204,The Norton Anthology of American Literature: Volume E: 1945 to the Present,Jerome Klinkowitz,9
+205,Living Literature: An Introduction to Fiction. Poetry. Drama,John Brereton,9
+206,Women of the Beat Generation: The Writers. Artists and Muses at the Heart of a Revolution,Brenda Knight,9
+207,La Llorona on the Longfellow Bridge: Poetry Y Otras Movidas,Alicia Gaspar De Alba,9
+208,To the Shore Once More: A Portrait Of The Jersey Shore,Frank Finale,9
+209,Witnessing Lynching: American Writers Respond,Anne P. Rice,9
+210,Longman Anthology of Women's Literature,Mary K. DeShazer,9
+211,Elements of Evolutionary Genetics,Brian Charlesworth,9
+212,The Best American Short Stories 2001,Barbara Kingsolver,9
+213,The Classic Hundred Poems: All-Time Favorites,William Harmon,9
+214,The Best American Nonrequired Reading 2007,Dave Eggers,9
+215,The Best New Playwrights 2009,Lawrence Harbison,9
+216,The Vintage Book of African American Poetry,Michael S. Harper,9
+217,Crossing the Danger Water: Three Hundred Years of African-American Writing,Deirdre Mullane,9
+218,2007: The Best Ten-Minute Plays for Two Actors,Lawrence Harbison,9
+219,The Hudson River Valley Reader,Edward C. Goodman,9
+220,Three Centuries of American Poetry,Allen Mandelbaum,9
+221,Down Time: Great Writers on Diving,Ed Kittrell,9
+222,Blues Poems (Everyman's Library Pocket Poets),Kevin Young,9
+223,Age Ain't Nothing But a Number: Black Women Explore Midlife,Carleen Brice,9
+224,Literary Nevada: Writings from the Silver State,Cheryll Glotfelty,9
+225,Nickel and Dimed,Joan Holden,9
+226,The Haves and Have Nots: 30 Stories about Money and Class in America,Barbara H. Solomon,9
+227,The Best American Short Plays 2003-2004,Glenn Young,9
+228,Latino Boom: An Anthology of U. S. Latino Literature,John Christie,9
+229,Up All Night: Adventures in Lesbian Sex,Stacy Bias,9
+230,Anthology of Modern American Poetry,Cary Nelson,9
+231,A Patriot'S Handbook: Songs. Poems. Stories. And Speeches Celebrating The Land We Love,Caroline Kennedy,9
+232,Uncle Remus: His Songs and His Sayings,Joel Chandler Harris,9
+233,The Heath Anthology of American Literature: Volume B: Early Nineteenth Century (1800-1865),Paul Lauter,9
+234,Immigrant Women,Maxine Schwartz Seller,9
+235,The American Aeneas: Classical Origins of the American Self,John C. Shields,9
+236,Love. Castro Street: Reflections of San Francisco,Katherine V. Forrest,9
+237,The Women's Project and Productions: The Best One-Act Plays. 1975-1999,Julia Miles,9
+238,Feeling Italian: The Art of Ethnicity in America,Thomas Ferraro,9
+239,Pamphlets of Protest: An Anthology of Early African American Protest Literature. 1790-1860,Richard G. Newman,9
+240,A Whole Other Ball Game: Women's Literature on Women's Sport,Joli Sandoz,9
+241,A Companion to African American Literature,Gene A. Jarrett,9
+242,Conversations with Mexican American Writers: Languages and Literatures in the Borderlands,Elisabeth Mermann-Jozwiak,9
+243,The Palm of My Heart: Poetry by African American Children,Davida Adedjouma,9
+244,Women and Children of the Mills: An Annotated Guide to Nineteenth-Century American Textile Factory Literature. Vol. 28,Judith Ranta,9
+245,Rising Voices,Arlene Hirschfelder,9
+246,Brotherman: The Odyssey of Black Men in America--an Anthology,Robert Allen,9
+247,Literary Journalism: A New Collection of the Best American Nonfiction,Mark Kramer,9
+248,Americans in Paris: A Literary Anthology,Adam Gopnik,9
+249,Uncle Remus: His Songs and His Sayings,Joel Chandler Harris,9
+250,Running a Thousand Miles for Freedom: The Escape of William and Ellen Craft from Slavery,Craft,9
+251,If I Had My Life to Live Over,Sandra Martz,9
+252,Postmodern American Poetry: A Norton Anthology,Paul Hoover,9
+253,Sisters of the Earth: Women's Prose and Poetry About Nature,Lorraine Anderson,9
+254,The Lincoln Anthology: Great Writers on His Life and Legacy from 1860 to Now,Harold Holzer,9
+255,Halloween Reader: Poems. Stories. and Plays from Halloweens Past,Lesley Pratt Bannatyne,9
+256,American Literature (Penguin Academics Series). Vol. 1,William E. Cain,9
+257,Modernism: An Anthology,Lawrence Rainey,9
+258,The New Anthology of American Poetry: Volume II: Modernisms: 1900-1950,Steven Gould Axelrod,9
+259,Infinite Divisions: An Anthology of Chicana Literature,Tey Diana Rebolledo,9
+260,A Hallowe'en Anthology: Literary and Historical Writings over the Centuries,Lisa Morton,9
+261,Sticks and Stones and Other Student Essays,Ruthe Thompson,9
+262,Women's Worlds: The Mcgraw-Hill Anthology of Women's Writing,Robyn Warhol-Down,9
+263,New York Stories: The Best Writing from Four Decades of New York Magazine,Steve Fishman,9
+264,The Columbia Anthology of American Poetry,Jay Parini,9
+265,New Playwrights: The Best Plays of 2008,Lawrence Harbison,9
+266,The Jazz Poetry Anthology,Sascha Feinstein,9
+267,New Playwrights: The Best Plays of 2006,D. L. Lepidus,9
+268,The Last Best Place: A Montana Anthology,William Kittredge,9
+269,A Place Apart: A Cape Cod Reader,Robert Finch,9
+270,Prison Writings in 20th-Century America,H. Bruce Franklin,9
+271,The Color of Gratitude: And Other Spiritual Surprises,Robert Morneau,9
+272,I Thought My Father Was God: And Other True Tales from NPR's National Story Project,Paul Auster,9
+273,Growing up Poor: A Literary Anthology,Robert Coles,9
+274,Drinking. Smoking and Screwing: Great Writers on Good Times,Sara Nickles,9
+275,Literature and Science in the Nineteenth Century: An Anthology,Laura Otis,9
+276,Show &amp,Wendy Brenner,9
+277,Mother California: A Story of Redemption Behind Bars,Kenneth E. Hartman,9
+278,Richard Wright: Later Works (Black Boy. American Hunger. The Outsider),Richard Wright,9
+279,Double-Take: A Revisionist Harlem Renaissance Anthology,Venetria Patton,9
+280,Hispanic-American Literature: A Brief Introduction and Anthology,Nicolas Kanellos,9
+281,Nineteenth-Century American Poetry,Various,9
+282,The Beat Book: Writings from the Beat Generation,Anne Waldman,9
+283,Beat Poets,Carmela Ciuraru,9
+284,Brooklyn Was Mine,Chris Knutsen,9
+285,New Playwrights: The Best Plays of 2007,Lawrence Harbison,9
+286,The Best American Erotic Poems: From 1800 to the Present,David Lehman,9
+287,The Best of the West: An Anthology of Classic Writing from the American West,Tony Hillerman,9
+288,Atop an Underwood: Early Stories and Other Writings,Jack Kerouac,9
+289,The African American Experience: Black History and Culture Through Speeches. Letters. Editorials. Poems. Songs. and Stories,Kai Wright,9
+290,Best New Poets: 50 Poems from Emerging Writers,Kim Addonizio,9
+291,Inherit the Atchafalaya,Greg Guirard,9
+292,The Best American Poetry 2007,Heather McHugh,9
+293,The Best American Poetry 2006,Billy Collins,9
+294,Tales for Little Rebels: A Collection of Radical Children's Literature,Philip Nel,9
+295,Great American Prose Poems,David Lehman,9
+296,The Literature of California. Volume 1: Native American Beginnings to 1945,Jack Hicks,9
+297,American Food Writing: An Anthology with Classic Recipes,Molly O'Neill,9
+298,Essential Saroyan,William Saroyan,9
+299,No Walls of Stone: An Anthology of Literature by Deaf and Hard of Hearing Writers,Jill Jepson,9
+300,Pioneers of the Black Atlantic: Five Slave Narratives from the Enlightenment. 1772-1815,Henry Louis Gates Jr.,9
+301,Riding Low on Streets of Gold,Judith Ortiz Cofer,10
+302,Fire and Ink: An Anthology of Social Action Writing,Frances Payne Adler,10
+303,New York Nocturne: The City After Dark in Literature. Painting. and Photography. 1850-1950,William Chapman Sharpe,10
+304,Poets of World War II,Various,10
+305,Voices from the Harlem Renaissance,Nathan Irvin Huggins,10
+306,A Loving Voice II: A Caregiver's Book of More Read-Aloud Stories for the Elderly,Carolyn Banks,10
+307,Running a Thousand Miles for Freedom: The Escape of William and Ellen Craft from Slavery,William Craft,10
+308,Motherland: Writings by Irish American Women about Mothers and Daughters,Caledonia Kearns,10
+309,The Lowell Offering: Writings by New England Mill Women (1840-1845),Benita Eisler,10
+310,The Best American Poetry 2010,Amy Gerstler,10
+311,Inside Out/Outside In: Exploring American Literature,Victoria Holder,10
+312,Glencoe Literature: American Literature: The Reader's Choice,Jeffrey D. Wilhelm,10
+313,Transcendentalism: A Reader,Joel Myerson,10
+314,The Best American Short Stories 2002,Sue Miller,10
+315,A Loving Voice: A Caregiver's Book of Read-Aloud Stories for the Elderly,Carolyn Banks,10
+316,Hispanic Caribbean Literature of Migration: Narratives of Displacement,Vanessa Y,10
+317,American Political Plays after 9/11,Allan Havis,10
+318,Best Plays of the Early American Theatre. 1787-1911,John Gassner,10
+319,Glances Backward: An Anthology of American Homosexual Writing. 1830-1920,James J. Gifford,10
+320,American Poetry: The Nineteenth Century (Melville to Stickney. American Indian Poetry. Folk Songs and Spirituals) (Library of America). Vol. 2,Various,10
+321,Deaf Way II Anthology: A Literary Collection of Deaf and Hard of Hearing Writers,Tonya M. Stremlau,10
+322,American Short Story and Its Writer: An Anthology,Ann Charters,10
+323,Orpheus and Company: Contemporary Poems on Greek Mythology,Deborah De Nicola,10
+324,Poems That Live Forever,Hazel Felleman,10
+325,The Best American Nonrequired Reading 2008,Dave Eggers,10
+326,American Negro Poetry,Arna Bontemps,10
+327,Paradise Road: Jack Kerouac's Lost Highway and My Search for America,Jay Atkinson,10
+328,The Black Woman: An Anthology,Toni Cade Bambara,10
+329,Thom Pain (based on nothing),Will Eno,10
+330,American Fantastic Tales: Terror and the Uncanny from Poe to the Pulps,Peter Straub,10
+331,100 Poems by 100 Poets,Harold Pinter,10
+332,Chocolate Thoughts: Short Stories. Essays and Poetry from the Hearts and Minds of Real Black Men,S. James Guitard,10
+333,Oxford Anthology of African American Poetry,Arnold Rampersad,10
+334,Freedom in This Village: Twenty-Five Years of Black Gay Men's Writing. 1979 to the Present,E. Lynn Harris,10
+335,Bandana Republic: A Literary Anthology by Gang Members and Their Affliliates,Louis Reyes Rivera,10
+336,The Civil Rights Reader: American Literature from Jim Crow to Reconciliation,Julie Buckner Armstrong,10
+337,American Sonnets: An Anthology,David Bromwich,10
+338,Voices in First Person: Reflections on Latino Identity,Lori Marie Carlson,10
+339,Montana Women Writers: A Geography of the Heart,Farcountry Press,10
+340,81 Famous Poems,Alexander Scourby,10
+341,Califauna: A Literary Field Guide,Terry Beers,10
+342,Thousand and One Afternoons in Chicago,Ben Hecht,10
+343,Philadelphia Stories: America's Literature of Race and Freedom,Samuel Otter,10
+344,Voices of Black America: Historical Recordings of Poetry. Humor and Drama. 1908-1947,Washington,10
+345,The Wind Shifts: New Latino Poetry,Francisco Arag,10
+346,Slamma Lamma Ding Dong: An Anthology by Nebraska's Slam Poets,J. M. Huscher,10
+347,Shadowed Dreams: Women's Poetry of the Harlem Renaissance,Maureen Honey,10
+348,Appalachia Inside Out: Conflict and Change. Vol. 1,Robert J. Higgs,10
+349,Writing Los Angeles: A Literary Anthology,David L. Ulin,10
+350,On Grandma's Porch: Stories and True Facts about Growing up Southern in the Good Old Days,Sandra Chastain,10
+351,Tuscany in Mind,Alice Leccese Powers,10
+352,Don't Squat With Yer Spurs On!: A Cowboy's Guide to Life,Texas Bix Bender,10
+353,Love and Marriage in Early African America,Frances Smith Foster,10
+354,Twenty One-Acts from the Twenty Years at the Humana Festival. 1975-1995,Michele Volansky,10
+355,American Austen: The Forgotten Writing of Agnes Repplier,Agnes Repplier,10
+356,American Gothic: An Anthology 1787-1916 (Blackwell Anthologies Series),Crow,10
+357,The Best American Poetry 2009,David Wagoner,10
+358,Bold Words: A Century of Asian American Writing,Rajini Srikanth,10
+359,Another Way to Dance: Contemporqary Asian Poetry from Canada and the United States,Cyril Dabydeen,10
+360,The Best American Poetry 2003,Yusef Komunyakaa,10
+361,Plays and Playwrights 2002,Martin Denton,10
+362,Why Freedom Matters: The Spirit of the Declaration of Independence in Prose. Poetry. and Song from 1776 to the Present,Daniel Katz,10
+363,The Best American Short Plays 2006-2007,Barbara Parisi,10
+364,Forced Passages: Imprisoned Radical Intellectuals and the U.S. Prison Regime,Dylan Rodriguez,10
+365,Selected Works,Ralph Waldo Emerson,10
+366,Getting Home Alive,Aurora Levins Morales,10
+367,Twentieth-Century American Poetry,Dana Gioia,10
+368,Plays and Playwrights 2009,Martin Denton,10
+369,Through the Eye of the Deer: An Anthology of Native American Women Writers,Carolyn Dunn,10
+370,Asian American Studies: A Reader,Jean Yu-wen Shen Wu,10
+371,Latinos in Lotusland: An Anthology of Contemporary Southern California Literature,Daniel A. Olivas,10
+372,Daughters Of Decadence,Elaine Showalter,10
+373,American Tradition in Literature : With American Ariel. Vol. 2,George Perkins,10
+374,Best American Nonrequired Reading 2005,Dave Eggers,10
+375,Sister Nations: Native American Women Writing on Community,Heid E. Erdrich,10
+376,Asian-American Literature: A Brief Introduction and Anthology,Shawn Wong,10
+377,Black Silk: A Collection of African-American Erotica,Retha Powers,10
+378,The Best Plays Theater Yearbook 2007-2008,Jeffrey Eric Jenkins,10
+379,Damage Control: Women on the Therapists. Beauticians. and Trainers Who Navigate Their Bodies,Emma Forrest,10
+380,The Prentice Hall Anthology of Latino Literature,Eduardo del Rio,10
+381,The Norton Book of American Autobiography,Jay Parini,10
+382,New Playwrights: The Best Plays of 2000,D. L. Lepidus,10
+383,Xerophilia: Ecocritical Explorations in Southwestern Literature,Tom Lynch,10
+384,The New Anthology of American Poetry: Volume I: Traditions and Revolutions. Beginnings to 1900,Steven Gould Axelrod,10
+385,Contemporary U. S. Latino a Literary Criticism,Lyn Di Iorio Sandin,10
+386,Brother to Brother: New Writings by Black Gay Men,Essex Hemphill,10
+387,The New World Border: Prophecies. Poems. and Loqueras for the End of the Century,Guillermo Gomez-Pena,10
+388,Literatura Chicana. 1965-1995: An Anthology in Spanish. English. and Calo. Vol. 191,Garland,10
+389,So Fey,Steve Berman,10
+390,Imagined Transnationalism: U. S. Latino/A Literature. Culture. and Identity,Kevin Concannon,10
+391,Literature and Aging: An Anthology,Martin Kohn,10
+392,Salaam. Peace: An Anthology of Middle Eastern-American Drama,Holly Hill,10
+393,Plays and Playwrights 2008,Robert Attweiler,10
+394,Call and Response: The Riverside Anthology of the African American Literary Tradition CD,Patricia Liggins Hill,10
+395,U.S. Latino Literature Today,Gabriela Baeza Ventura,10
+396,Death Defying Acts,Woody Allen,10
+397,American Studies Anthology,Richard P. Horwitz,10
+398,Women Heroes: Six Short Plays from the Women's Project,Julia Miles,10
+399,Queer Beats: How the Beats Turned America On to Sex,Regina Marler,10
+400,Message to Aztlan: Selected Readings,Rodolfo Gonzales,10
+401,The New England Transcendentalists: Life of the Mind and of the Spirit (Perspectives on History Series),Ellen Hansen,20
+402,Literature of the American South: A Norton Anthology,William L. Andrews,20
+403,The American Puritans: Their Prose and Poetry,Perry Miller,20
+404,Richard Wright: Early Works (Lawd Today!. Uncle Tom's Children. Native Son),Richard Wright,20
+405,The Heath Anthology of American Literature: Volume E: Contemporary Period (1945 to the Present),Paul Lauter,20
+406,Best American Magazine Writing 2004,American Society Of Magazine Editors,20
+407,Writing Off the Hyphen: New Perspectives on the Literature of the Puerto Rican Diaspora,Jose L. Torres-Padilla,20
+408,Ethnic Modernism,Werner Sollors,20
+409,Recollections of the Early Republic: Selected Autobiographies,Joyce Appleby,20
+410,The Best American Magazine Writing,Clay Felker,20
+411,Blacklegs. Card Sharps. and Confidence Men,Thomas Ruys Smith,20
+412,Modern American Prose: Fifteen Writers + 15,John Clifford,20
+413,A Beginner's Guide to Critical Reading: An Anthology of Literary Texts,Richard Jacobs,20
+414,For a Living: The Poetry of Work,Nicholas Coles,20
+415,What's Nature Worth?: Narrative Expressions of Environmental Values,Terre Satterfield,20
+416,New Playwrights: The Best Plays of 2001,D. L. Lepidus,20
+417,New Playwrights: The Best Plays of 2004,D. L. Lepidus,20
+418,More New York Stories: The Best of the City Section of The New York Times,Constance Rosenblum,20
+419,Latina,Lillian Castillo-speed,20
+420,Word Virus,William S. Burroughs,20
+421,American Fantastic Tales: Terror and the Uncanny from the 1940s to Now,Peter Straub,20
+422,Christmas in Minnesota,Marilyn Ziebarth,20
+423,Iowa. the Definitive Collection: Classic and Contemporary Readings by Iowans. for Iowans,Zachary Michael Jack,20
+424,Friction. Volume 7: Best Gay Erotic Fiction,Jesse Grant,20
+425,A Kentucky Christmas,George Ella Lyon,20
+426,The Little Big Book of California,Natasha Tabori Fried,20
+427,New Playwrights: The Best Plays of 2005,D. L. Lepidus,20
+428,Tenderheaded: A Comb-Bending Collection of Hair Stories,Juliette Harris,20
+429,The Classic Hundred Poems: All-Time Favorites,William Harmon,20
+430,The Best of Bamboo Ridge,Eric Chock,20
+431,Inlandia,Gayle Wattawa,20
+432,Literary Savannah,Patrick Allen,20
+433,New Oxford Book of American Verse. Vol. 1,Richard Ellmann,20
+434,Caroling Dusk,Countee Cullen,20
+435,Literary Fort Worth,Judy Alter,20
+436,A River Through Illinois,Daniel V. Overturf,20
+437,Don't Squat With Yer Spurs On! II. Vol. 2,Texas Bix Bender,20
+438,The Maine Reader: The Down East Experience from 1614 to the Present,Charles Shain,20
+439,Florida Frenzy,Harry E. Crews,20
+440,Starting Today: 100 Poems for Obama's First 100 Days,Rachel Zucker,20
+441,Chattooga: Descending into the Myth of Deliverance River,John Lane,20
+442,All Things Censored [With CD],Mumia Abu-Jamal,20
+443,Listen Here: Women Writing in Appalachia,Sandra L. Ballard,20
+444,The Flu Season and Other Plays,Will Eno,20
+445,Solomon Northup's Twelve Years a Slave: And Plantation Life in the Antebellum South,Solomon Northup,20
+446,Bamboo among the Oaks: Contemporary Writing by Hmong Americans,Mai Neng Moua,20
+447,Poets of the Civil War,J. D. McClatchy,20
+448,The Book of American Negro Poetry,James Weldon Johnson,20
+449,Slave Narratives: James Albert Ukawsaw Gronniosaw. Olaudah Equiano. Nat Turner. Frederick Douglass. William Wells Brown. Henry Bibb. Sojourner Truth. William and Ellen Craft. Harriet A. Jacobs. Jacob D. Green (Library of America),William L. Andrews,20
+450,Denali: A Literary Anthology,Bill Sherwonit,20
+451,The Best American Poetry 2005,Paul Muldoon,20
+452,Who's to Say What's Obscene?: Politics. Culture. and Comedy in America Today,Paul Krassner,20
+453,Impossible Princess,Kevin Killian,20
+454,This Bridge We Call Home: Radical Visions for Transformation,Gloria E. Anzaldua,20
+455,Our Own Stories: Readings for Cross-Cultural Communication,Norine Dresser,20
+456,Sky Begins at Your Feet,Caryn Mirriam-Goldberg,20
+457,Hot Biscuits: Eighteen Stories by Women and Men of the Ranching West,Max Evans,20
+458,Santa Fe Nativa: A Collection of Nuevomexicano Writing,Rosalie C. Otero,20
+459,Literary Austin,Don Graham,20
+460,The Best American Short Plays 2004-2005,Barbara Parisi,20
+461,En Otra Voz: Antología de Literatura Hispana de los Estados Unidos,Nicolas Kanellos,20
+462,Common Wealth,Marjorie Maddox,20
+463,American Satire,Nicholas Bakalar,20
+464,Appalachia inside Out. Vol. 2,Robert J. Higgs,20
+465,New Stories from the Southwest,D. Seth Horton,20
+"466,	Writing New England: An Anthology from the Puritans to the Present,Andrew Delbanco,20"
+467,Crazy Woman Creek: Women Rewrite the American West,Nancy Curtis,20
+468,Circle of Women: An Anthology of Contemporary Western Women Writers,Kim Barnes,20
+469,The Portable Western Reader,Various,20
+470,African-American Literature: A Brief Introduction and Anthology,Al Young,20
+471,El Coro,Martin Espada,20
+472,Off Off Broadway Festival Plays. 34th Series,Various,20
+473,American Wits: An Anthology of Light Verse,VARIOUS,20
+474,Out on the Porch: An Evocation in Words and Pictures,Reynolds Price,20
+475,30 Satires,Lewis H. Lapham,20
+476,Literary Mama: Reading for the Maternally Inclined,Andrea J. Buchanan,20
+477,In So Many More Words: Arguments and Adventures. Second Edition,Robert Schmuhl,20
+478,Georgia Cowboy Poets,David Fillingim,20
+479,Decolonial Voices: Chicana and Chicano Cultural Studies in the 21st Century,Arturo J. Aldama,20
+480,More Mirth of a Nation: The Best Contemporary Humor,Michael J. Rosen,20
+481,New Playwrights: The Best Plays of 2003,D. L. Lepidus,20
+482,American Reader,Kathy-jo Wargin,20
+483,Every Shut Eye Ain't Asleep,Michael S. Harper,20
+484,Moment's Notice: Jazz in Poetry and Prose,Art Lange,20
+485,Literary Nashville,Patrick Allen,20
+486,Screaming Monkeys: Critiques of Asian American Images,M. Evelina Galang,20
+487,Imagination And Spirit,J. Brent Bill,20
+488,Writings: The Autobiography of an Ex-Colored Man. Along This Way. Essays and Editorials. Selected Poems,James Weldon Johnson,20
+489,Quixotic Fictions of the USA 1792-1815,Sarah Florence Wood,20
+490,Roots of African American Drama: An Anthology of Early Plays. 1858-1938,Leo Hamalian,20
+491,The Floating Borderlands: Twenty-Five Years of U.S. Hispanic Literature,Lauro Flores,20
+492,Classic Plays from the Negro Ensemble Company,Paul Carter Harrison,20
+493,Mississippi Writers: An Anthology,Dorothy Abbott,20
+494,Bombshells: War Stories and Poems by Women on the Homefront,Missy Martin,20
+495,At Home on the Earth: Becoming Native to Our Place,David Landis Barnhill,20
+496,Wines in the Wilderness: Plays by African American Women from the Harlem Renaissance to the Present,Elizabeth Brown-Guillory,20
+497,Stand Up Poetry: An Expanded Anthology,Charles Harper Webb,20
+498,First Thought Best Thought,Allen Ginsberg,20
+499,For She Is the Tree of Life: Grandmothers Through the Eyes of Women Writers,Valerie Kack-Brice,20
+500,White Lines: Writers on Cocaine,Geno Zanetti,20

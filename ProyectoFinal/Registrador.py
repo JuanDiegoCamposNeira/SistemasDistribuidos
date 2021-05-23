@@ -20,12 +20,15 @@
 #                 Classes
 #------------------------------------------------
 # Represents a branch 
-class Branch: 
-    def __init__(self):
-        self.load_managers = []
-        self.return_process = []
-        self.renew_process = []
-        self.request_process = []
+class PrimaryReplica: 
+    def __init__(self, rep_frontend_address, pub_replicas_address):
+        self.rep_frontend_address = rep_frontend_address
+        self.pub_replicas_address = pub_replicas_address
+# Eoc
+
+class BackupReplica:
+    def __init__(self, pub_primary_replica_address = ''): 
+        self.pub_primary_replica_address = pub_primary_replica_address
 # Eoc
 
 # Represents a process (Return, RenewLoan, RequestLoan)
@@ -40,7 +43,7 @@ class Process:
 class Coordinator: 
     def __init__(self, rep_processes_address):
         self.rep_processes_address = rep_processes_address
-# EocF
+# Eoc
 
 # Represents a Load Manager
 class LoadManager: 
@@ -72,27 +75,44 @@ rep_to_processes_socket.bind( f'tcp://*:{ REP_TO_PROCESSES_PORT }' )
 #------------------------------------------------
 #                 Variables
 #------------------------------------------------
+# Branches IP address
+branch = [ '-1', '25.0.228.65', '25.0.228.65' ]
 # Arrays to store information of all branches
 load_managers = [ [] for _ in range(0, 10) ]
 return_book = [ [] for _ in range(0, 10) ] 
 renew_loan = [ [] for _ in range(0, 10) ]
 request_loan = [ [] for _ in range(0, 10) ] 
+# Replicas
+primary_replica = PrimaryReplica('', '')
+backup_replica = [ BackupReplica() ] 
 
 # Coordinator 
-coordinator = Coordinator('25.0.228.65:4000') 
+coordinator = Coordinator( branch[1] + ':4000' ) 
 
-# Register load manager
-load_managers[1].append( LoadManager('25.0.228.65:3000', '25.0.228.65:5551') ) # Primary load manager
-load_managers[2].append( LoadManager('25.0.228.65:2999', '25.0.228.65:5550') ) # In case, the primaery load manager fails
+#------ Register load managers ------
+# Branch 1
+load_managers[1].append( LoadManager(branch[1] + ':3000', branch[1] + ':5551') ) # Primary load manager
+load_managers[1].append( LoadManager(branch[1] + ':2999', branch[1] + ':5550') ) # In case, the primary load manager fails
+# Branch 2 
+load_managers[2].append( LoadManager(branch[2] + ':3000', branch[2] + ':5551') ) # Primary load manager
+load_managers[2].append( LoadManager(branch[2] + ':2999', branch[2] + ':5550') ) # In case, the primary load manager fails
 
-# Register processes
-return_book[1].append( Process('devolucion', '25.0.228.65:1001', '25.0.228.65:3001') ) # Return Book 
-renew_loan[1].append( Process('renovacion', '25.0.228.65:1002', '25.0.228.65:3002') ) # Renew Loan
-request_loan[1].append( Process('solicitud', '25.0.228.65:1003', '25.0.228.65:3003') ) # Request Loan
+#------ Register processes ------
+# Branch 1
+return_book[1].append( Process('devolucion', branch[1] + ':1001', branch[1] + ':3001') ) # Return Book 
+renew_loan[1].append( Process('renovacion', branch[1] + ':1002', branch[1] + ':3002') ) # Renew Loan
+request_loan[1].append( Process('solicitud', branch[1] + ':1003', branch[1] + ':3003') ) # Request Loan
+# Branch 2
+return_book[2].append( Process('devolucion', branch[2] + ':1001', branch[2] + ':3001') ) # Return Book 
+renew_loan[2].append( Process('renovacion', branch[2] + ':1002', branch[2] + ':3002') ) # Renew Loan
+request_loan[2].append( Process('solicitud', branch[2] + ':1003', branch[2] + ':3003') ) # Request Loa
 
-return_book[2].append( Process('devolucion', '25.0.228.65:1001', '25.0.228.65:3001') ) # Return Book 
-renew_loan[2].append( Process('renovacion', '25.0.228.65:1002', '25.0.228.65:3002') ) # Renew Loan
-request_loan[2].append( Process('solicitud', '25.0.228.65:1003', '25.0.228.65:3003') ) # Request Loa
+#------ Register replicas ------
+# Primary replica
+rep_frontend_address = branch[1] + ':9999'
+pub_replicas_address = branch[1] + ':9950'
+primary_replica = PrimaryReplica( rep_frontend_address, pub_replicas_address )
+# Backup replicas 
 
 #------------------------------------------------
 #                Main 
@@ -105,8 +125,6 @@ if __name__ == '__main__':
         print('Esperando peticiones ...')
         # Wait for process to request to register 
         req = rep_to_processes_socket.recv().decode('utf-8')
-        # req = 'registro,devolucion,1,localhost:3000,localhost:1001' # register example
-        # req = 'peticion,devolucion,1,coordinator:rep_processes_address' # Request example
         request = req.split(',')
 
         request_type = request[0]
@@ -141,8 +159,19 @@ if __name__ == '__main__':
                 new_load_manager = LoadManager(request[3], request[4])
                 load_managers[ branch ].append( new_load_manager )
 
-            # Debug 
-            # print('load_manager :', load_managers, '\nreturn_books :', return_book, '\nrenew_loan : ', renew_loan, '\nrequest_loan : ', request_loan, '\ncoord : ', coordinator) 
+            # If primary replica wants to register
+            elif name == 'replica_primaria':
+                rep_frontend_address = request[3]
+                pub_replicas_socket = request[4]
+                new_primary_replica = PrimaryReplica( rep_frontend_address, pub_replicas_socket )
+                primary_replica = new_primary_replica
+
+            # If a bakcup replica wants to register
+            elif name == 'replica_respaldo':
+                pub_primary_replica_address = request[3]
+                new_backup_replica = BackupReplica( pub_primary_replica_address ) 
+                backup_replica.append( new_backup_replica ) 
+
             # Prepare response 
             response = 'ok'
         # Eoi
@@ -199,6 +228,29 @@ if __name__ == '__main__':
                     elif address_requested == 'pub_coordinator_address' and requested_process_name == 'solicitud':
                         response += request_loan[ branch ][ 0 ].pub_coordinator_address
                      
+                # If requested process is primary replica
+                elif requested_process_name == 'replica_primaria':
+                    response += requested_process_name + ' '
+                    if address_requested == 'pub_replicas_address': 
+                        response += primary_replica.pub_replicas_address
+                    elif address_requested == 'rep_frontend_address': 
+                        response += primary_replica.rep_frontend_address
+
+                # If requested process is backup replica
+                elif requested_process_name == 'replica_respaldo':
+                    for backup in backup_replica: 
+                        response += requested_process_name + ' '
+                        response += backup.pub_primary_replica_address + ','
+                    # Eof
+                    # Remove last ','
+                    response = response[:len(response) - 1]
+
+                # If request is to get the branches
+                elif requested_process_name == 'sedes':
+                    for b in branch:
+                        response += b + ','
+
+                print(request)
                 # Add ',' to separate requests
                 response += ','
             # Eof

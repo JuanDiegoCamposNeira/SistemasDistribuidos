@@ -1,0 +1,83 @@
+# id,title,author,Cantidad
+1,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,5
+2,The Caine Prize for African Writing 2010: 11th Annual Collection,The Caine Prize for African Writing,5
+3,African Folktales,Roger D. Abrahams,5
+4,Unchained Voices: An Anthology of Black Authors in the English-Speaking World of the Eighteenth Century,Vincent Carretta,5
+5,Women Writing Africa: West Africa and the Sahel,Esi Sutherland-Addy,5
+6,10 Years of the Caine Prize for African Writing: Plus Coetzee. Gordimer. Achebe. Okri,The Caine The Caine Prize for African Writing,5
+7,Introduction to African Oral Literature and Performance,Bayo Ogunjimi,5
+8,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,5
+9,Oral Epics from Africa,John William Johnson,5
+10,African Fundamentalism: A Literary and Cultural Anthology of Garvey's Harlem Renaissance,Tony Martin,5
+11,Land Apart: A South African Reader,Various,5
+12,Women Writing Africa: The Eastern Region,Amandina Lihamba,5
+13,Nobody Ever Said AIDS: Poems and Stories from Southern Africa,Nobantu Rasebotsa,5
+14,Step into a World: A Global Anthology of the New Black Literature,Kevin Powell,5
+15,An Anthology of Interracial Literature: Black-White Contacts in the Old World and the New,Werner Sollors,5
+16,The Caine Prize 2009: The Caine Prize for African Writing 10th Annual Collection,New Internationalist,5
+17,Traditions in World Literature: Literature of Africa; Softcover Student Edition,McGraw-Hill,5
+18,Love Child,Gcina Mhlophe,5
+19,Seventh Street Alchemy 2004: A Selection of Works from the Caine Prize for African Writing,Jacana Media,5
+20,Women Writing Africa: The Southern Region: Volume 1,Sheila Meintjes,5
+21,Of Suffocated Hearts and Tortured Souls: Seeking Subjecthood through Madness in Francophone Women's,ValZrie Orlando,5
+22,Less Than One and Double: A Feminist Reading of African Women's Writing,Kenneth W. Harrow,5
+23,The Rienner Anthology of African Literature,Anthonia C. Kalu,5
+24,Oral and Written Expressions of African Cultures,Toyin Falola,5
+25,Jambula Tree and other stories: The Caine Prize for African Writing 8th Annual Collection,Monica Arac de Nyeko,5
+26,Up the Down Escalator,Linda Rode,5
+27,Basali!: Stories by and about Women in Lesotho,K. Limakatso Kendall,5
+28,How God Fix Jonah,Lorenz Graham,5
+29,Glass Jars among Trees,Arja Salafranca,5
+30,Running Towards Us: New Writing from South Africa,Isabel Balseiro,5
+31,Of Suffocated Hearts And Tortured Souls,Valerie Key Orlando,5
+32,An Anthology of Interracial Literature: Black-White Contacts in the Old World and the New,Werner Sollors,5
+33,Among the Blacks,Ron Padgett,5
+34,The Daily Show with Jon Stewart Presents Earth (the Book): A Visitor's Guide to the Human Race,Jon Stewart,5
+35,The Best American Nonrequired Reading 2010,Dave Eggers,5
+36,The Daily Show with Jon Stewart Presents Earth (the Book): A Visitor's Guide to the Human Race,Jon Stewart,5
+37,100 Best-Loved Poems,Philip Smith,5
+38,The Norton Anthology of American Literature; Shorter Seventh Edition; One-Volume Paperback,Wayne Franklin,5
+39,The Best American Poetry 2009,David Wagoner,5
+40,The Oxford Book of American Short Stories,Joyce Carol Oates,5
+41,The Best American Essays 2009,Mary Oliver,5
+42,The Norton Anthology of American Literature; Package 2: Volumes C; D; and E,Jerome Klinkowitz,5
+43,Early African American Classics (Barnes &amp,Barnes & Noble,5
+44,African-American Poetry: An Anthology; 1773-1930,Joan R. Sherman,5
+45,Couldn't Keep It to Myself: Testimonies from Our Imprisoned Sisters,Wally Lamb,5
+46,The Norton Anthology of Poetry; Shorter 5th Edition,Margaret Ferguson,5
+47,The Best American Poetry 2010,Amy Gerstler,5
+48,Classic Slave Narratives: The Life of Olaudah Equiano; The History of Mary Prince; Narrative of the Life of Frederick Douglass; Incidents in the Life of a Slave Girl,Henry Louis Gates Jr.,5
+49,The Best American Nonrequired Reading 2009,Dave Eggers,5
+50,In Fact: The Best of Creative Nonfiction,Lee Gutkind,5
+51,The Best American Essays of the Century,Joyce Carol Oates,5
+52,The Best Loved Poems of the American People,Hazel Felleman,5
+53,The Norton Anthology of American Literature: Volume A: Beginnings to 1820,Wayne Franklin,5
+54,The Norton Anthology of Poetry,Margaret Ferguson,5
+55,The Norton Anthology of African American Literature; Vol. 2,Henry Louis Gates Jr.,5
+56,Poems; Poets; Poetry: An Introduction and Anthology,Helen Vendler,5
+57,The Poets Laureate Anthology,Elizabeth Hun Schmidt,5
+58,The Portable Beat Reader,Various,5
+59,The Best American Short Plays 2008-2009,Barbara Parisi,5
+60,The Gift of Love,Lori Foster,5
+61,One Hundred and One Famous Poems ,Roy Cook,5
+62,The Vintage Book of Contemporary American Poetry,J. D. McClatchy,5
+63,Literature: A Pocket Anthology,R. S. Gwynn,5
+64,I'll Fly Away: Further Testimonies from the Women of York Prison,Wally Lamb,5
+65,American Earth: Environmental Writing Since Thoreau,Bill McKibben,5
+66,Best Poems of the English Language: From Chaucer Through Robert Frost,Harold Bloom,5
+67,Humor Me: An Anthology of Funny Contemporary Writing (Plus Some Great Old Stuff Too),Ian Frazier,5
+68,Coming of Age in America: A Multicultural Anthology,Mary Frosch,5
+69,Three African-American Classics: Up from Slavery; The Souls of Black Folk and Narrative of the Life of Frederick Douglass,Booker T. Washington,5
+70,100 Best African American Poems with CD,Nikki Giovanni,5
+71,Six American Poets: An Anthology,Joel Conarroe,5
+72,Norton Anthology of Literature by Women: The Traditions in English,Sandra M. Gilbert,5
+73,Multicultural Children's Literature: Through the Eyes of Many Children,Donna E. Norton,5
+74,The Voice That Is Great within Us: American Poetry of the Twentieth Century,Hayden Carruth,5
+75,Poems That Touch the Heart,A.L. Alexander,5
+76,I Thought My Father Was God: And Other True Tales from NPR's National Story Project,Paul Auster,5
+77,Listening For God Rdr Vol 4,Paula J. Carlson,5
+78,The American Tradition in Literature (concise) book alone,George Perkins,5
+79,Approaching Literature: Writing; Reading; Thinking,Peter Schakel,5
+80,The Norton Anthology of American Literature: Volume C: 1865-1914,Arnold Krupat,5
+81,American Fantastic Tales Boxed Set,Peter Straub,5
+82,Unsettling America: An Anthology of Contemporary Multicultural Poetry,Maria Mazziotti Gillan,5
