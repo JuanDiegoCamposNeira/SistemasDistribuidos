@@ -12,17 +12,12 @@ import zmq
 import re
 
 #------------------------------------------------
-#                 TO DO 
-#------------------------------------------------
-# Tolerancia a fallas, qué pasa si el gestor de carga, se cae en algún momento 
-
-#------------------------------------------------
 #                Variables 
 #------------------------------------------------
 REQUEST_TIMEOUT = 10000 
 REQUEST_RETRIES = 3
 # Branches IP address
-branches = [ '-1', '25.0.228.65', '25.0.228.65' ]
+branches = [ '-1', '25.0.228.65', '25.114.38.38' ]
 # Addressed from load managers
 load_managers_addresses = [ '-1', [], [] ]
 # Load managers, branch 1

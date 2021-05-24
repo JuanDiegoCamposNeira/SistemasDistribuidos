@@ -11,13 +11,6 @@ import time
 import zmq
 import sys
 
-from zmq.sugar import socket
-
-#------------------------------------------------
-#                 TO DO 
-#------------------------------------------------
-# Tolerancia a fallas, qué pasa si el gestor de carga, se cae en algún momento 
-
 #------------------------------------------------
 #                Validations 
 #------------------------------------------------
@@ -55,10 +48,6 @@ pub_load_manager_socket.bind( f'tcp://*:{ PUB_LOAD_MANAGER_PORT }' )
 # Socket to register process
 register_socket = context.socket( zmq.REQ )
 register_socket.connect( 'tcp://25.0.228.65:6000' )
-
-#------------------------------------------------
-#                 Functions
-#------------------------------------------------
 
 #------------------------------------------------
 #                Main 
@@ -116,7 +105,6 @@ if __name__ == '__main__':
         print('Solicitud recibida')
         _, book = request.split(',')
 
-
         #----------  Handle request  ----------- 
         print('Solicitando acceso a la Base de Datos ...')
         # Request access to DB until access granted
@@ -145,7 +133,6 @@ if __name__ == '__main__':
         
         #----------  Reply to 'GestorDeCarga'  ----------
         print('Enviando respuesta a Gestor de carga ...')
-        
         pub_load_manager_socket.send('Process finished'.encode('utf-8'))
         print('Respuesta enviada.')
 

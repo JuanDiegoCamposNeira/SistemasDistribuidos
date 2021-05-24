@@ -116,9 +116,9 @@ def handle_database_modification(operation: str, book: str):
         else: 
             for i in range(0, len(library_database)): 
                 if library_database[ i ].name == book:
-                    if library_database[ i ].available_quantity >= 1: 
-                        library_database[ book_id ].available_quantity = int(library_database[ book_id ].available_quantity) - 1
-                        library_database[ book_id ].available_quantity = str(library_database[ book_id ].available_quantity) + '\n'
+                    if int(library_database[ i ].available_quantity) >= 1: 
+                        library_database[ i ].available_quantity = int(library_database[ i ].available_quantity) - 1
+                        library_database[ i ].available_quantity = str(library_database[ i ].available_quantity) + '\n'
                     else: 
                         print('Cantidad de ejemplares insuficientes.')
 

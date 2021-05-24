@@ -18,7 +18,7 @@
             * Backups : 3 
 
         Protocol used to communicate between Primary Replica and Backups : REQ - REP
-        Protocol used to communicate between Front End and Primary Replica : REQ - REP (using a poller) 
+        Protocol used to communicate between Front End and Primary Replica : REQ - REP  
 """
 #------------------------------------------------
 #                 Libraries
@@ -26,65 +26,71 @@
 import sys
 import time
 import zmq
+import datetime
 
 #------------------------------------------------
 #                 Classes
 #------------------------------------------------
 class Libro:
-    def __init__(self, _id = 0, name = '', authors = '', avaiable_quantity = 0):
-        self.id = _id
-        self.name = name
-        self.authors = authors
-        self.available_quantity = avaiable_quantity
+    def __init__(self, id_libro, id_ejemplar, nombre, autor, estado, fecha_prestamo, fecha_devolucion, sede_prestamo):
+        self.id_libro = id_libro
+        self.id_ejemplar = id_ejemplar
+        self.nombre = nombre
+        self.autor = autor
+        self.estado = estado 
+        self.fecha_prestamo = fecha_prestamo
+        self.fecha_devolucion = fecha_devolucion
+        self.sede_prestamo = sede_prestamo 
 
 #------------------------------------------------
 #                Validations 
 #------------------------------------------------
-# # Validate addresses passed as parameters
+# # # Validate addresses passed as parameters
 # if len(sys.argv) != 4: 
 #     print('Parámetros de ejecución inválidos, ejecución válida : ')
 #     print('python3 BaseDeDatos.py < NÚMERO_SEDE > < DIRECCIÓN_REP_FRONTEND > < DIRECCIÓN_PUB_REPLICAS_RESPALDO >') 
 #     exit()
 
-#------------------------------------------------
-#                Variables 
-#------------------------------------------------
-branch = sys.argv[1]
-rep_frontend_address = sys.argv[2]
-pub_replicas_address = sys.argv[3]
+# #------------------------------------------------
+# #                Variables 
+# #------------------------------------------------
+# branch = sys.argv[1]
+# rep_frontend_address = sys.argv[2]
+# pub_replicas_address = sys.argv[3]
 
-library_database = []
+database_book_id = dict()
+database_book_name = dict()
+ejemplares_disponibles = dict()
+
 backup_replicas = 0
 
 #------------------------------------------------
 #                 Configurations
 #------------------------------------------------
-# Context
-context = zmq.Context()
+# # Context
+# context = zmq.Context()
 
-# Socket to receive requests from Front End
-rep_frontend_socket = context.socket( zmq.REP )
-rep_frontend_socket.bind( f'tcp://*:9999' )
+# # Socket to receive requests from Front End
+# rep_frontend_socket = context.socket( zmq.REP )
+# rep_frontend_socket.bind( f'tcp://*:9999' )
 
-# Socket to publish to backup replicas 
-pub_replicas_socket = context.socket( zmq.PUB )
-pub_replicas_socket.bind( 'tcp://*:9950' )
+# # Socket to publish to backup replicas 
+# pub_replicas_socket = context.socket( zmq.PUB )
+# pub_replicas_socket.bind( 'tcp://*:9950' )
 
-# Socket to subscribe to backup replicas
-sub_replicas_socket = context.socket( zmq.SUB )
+# # Socket to subscribe to backup replicas
+# sub_replicas_socket = context.socket( zmq.SUB )
 
-# Socket to register process
-register_socket = context.socket( zmq.REQ )
-register_socket.connect( 'tcp://25.0.228.65:6000' )
+# # Socket to register process
+# register_socket = context.socket( zmq.REQ )
+# register_socket.connect( 'tcp://25.0.228.65:6000' )
 
 
 # Read the initial state of the DataBase
-# Inser dummy book
-library_database.append( Libro() )
 # Open file
 data_base = open('BaseDeDatos.txt', 'r')
 # Read file 
-line = 1 # This is used as an index too 
+line = 1
 for single_book_info in data_base: 
     # Don't read the first line
     if line == 1: 
@@ -92,20 +98,45 @@ for single_book_info in data_base:
         continue
     else: 
         line += 1
-    # Save book  
-    book_id, book_name, authors, available_quantity = single_book_info.split(',')
-    library_database.append( Libro(book_id, book_name, authors, available_quantity) )
+
+    # Get book parameters 
+    id_libro, id_ejemplar, nombre, autor, estado, fecha_prestamo, fecha_devolucion, sede_prestamo = single_book_info.split(',')
+    # Create dates if book available
+    loan_date = fecha_prestamo 
+    return_date = fecha_devolucion
+    if estado == 'prestado': 
+        fecha_prestamo = fecha_prestamo.split('-')
+        loan_date = datetime.datetime(int(fecha_prestamo[0]), int(fecha_prestamo[1]), int(fecha_prestamo[2]))
+        fecha_devolucion = fecha_devolucion.split('-')
+        return_date = datetime.datetime(int(fecha_devolucion[0]), int(fecha_devolucion[1]), int(fecha_devolucion[2]))
+    # Save book by id
+    database_book_id[id_libro] = Libro(id_libro, id_ejemplar, nombre, autor, estado, loan_date, return_date, sede_prestamo)
+    # Save book by name 
+    database_book_name[nombre] = Libro(id_libro, id_ejemplar, nombre, autor, estado, loan_date, return_date, sede_prestamo) 
+
+    # If book isn't available, continue
+    if estado == 'prestado': 
+        continue
+
+    # Otherwise, save the 'ejemplar'
+    if not id_libro in ejemplares_disponibles:
+        ejemplares_disponibles[id_libro] = 1
+    else: 
+        ejemplares_disponibles[id_libro] += 1
+
 # Eof
 
 #------------------------------------------------
 #                 Functions
 #------------------------------------------------
 def handle_database_modification(operation: str, book: str): 
-
-    # Check if book is id or name
-    id_search = False
-    if len(book) == 3: 
-        id_search = True 
+    # Search book 
+    name = False
+    id = False
+    if book in database_book_name: 
+        name = True
+    else: 
+        id = True
 
     if operation == 'devolucion':
         if id_search: 
@@ -117,7 +148,7 @@ def handle_database_modification(operation: str, book: str):
             for i in range(0, len(library_database)): 
                 if library_database[ i ].name == book:
                     library_database[ i ].available_quantity = int(library_database[ i ].available_quantity) + 1
-                    library_database[ i ].available_quantity += '\n'
+                    library_database[ i ].available_quantity = str(library_database[ i ].available_quantity) + '\n'
 
     elif operation == 'renovacion':
         if id_search: 
@@ -136,9 +167,9 @@ def handle_database_modification(operation: str, book: str):
         else: 
             for i in range(0, len(library_database)): 
                 if library_database[ i ].name == book:
-                    if library_database[ i ].available_quantity >= 1: 
-                        library_database[ book_id ].available_quantity = int(library_database[ book_id ].available_quantity) - 1
-                        library_database[ book_id ].available_quantity = str(library_database[ book_id ].available_quantity) + '\n'
+                    if int(library_database[ i ].available_quantity) >= 1: 
+                        library_database[ i ].available_quantity = int(library_database[ i ].available_quantity) - 1
+                        library_database[ i ].available_quantity = str(library_database[ i ].available_quantity) + '\n'
                     else: 
                         print('Cantidad de ejemplares insuficientes.')
 

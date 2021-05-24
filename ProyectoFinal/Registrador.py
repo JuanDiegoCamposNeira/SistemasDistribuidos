@@ -76,7 +76,7 @@ rep_to_processes_socket.bind( f'tcp://*:{ REP_TO_PROCESSES_PORT }' )
 #                 Variables
 #------------------------------------------------
 # Branches IP address
-branch = [ '-1', '25.0.228.65', '25.0.228.65' ]
+branch = [ '-1', '25.0.228.65', '25.114.38.38' ]
 # Arrays to store information of all branches
 load_managers = [ [] for _ in range(0, 10) ]
 return_book = [ [] for _ in range(0, 10) ] 
