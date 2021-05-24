@@ -103,7 +103,7 @@ if __name__ == '__main__':
         print('Esperado solicitud ... ')
         request = sub_load_manager_socket.recv().decode('utf-8')
         print('Solicitud recibida')
-        _, book = request.split(',')
+        _, book, branch = request.split(',')
 
         #----------  Handle request  ----------- 
         print('Solicitando acceso a la Base de Datos ...')
@@ -119,7 +119,7 @@ if __name__ == '__main__':
 
         # Modify DataBase
         print('Enviando solicitud a réplica primaria ...')
-        message = 'devolucion,' + book
+        message = 'devolucion,' + book + ',' + branch
         req_primary_replica_socket.send( message.encode('utf-8') )
         print('Envidada.')
         print('Esperando respuesta de réplica primaria ...')
@@ -133,7 +133,7 @@ if __name__ == '__main__':
         
         #----------  Reply to 'GestorDeCarga'  ----------
         print('Enviando respuesta a Gestor de carga ...')
-        pub_load_manager_socket.send('Process finished'.encode('utf-8'))
+        pub_load_manager_socket.send(response.encode('utf-8'))
         print('Respuesta enviada.')
 
     # Eow

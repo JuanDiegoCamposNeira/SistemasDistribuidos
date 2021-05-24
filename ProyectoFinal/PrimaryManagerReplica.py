@@ -45,21 +45,20 @@ class Libro:
 #------------------------------------------------
 #                Validations 
 #------------------------------------------------
-# # # Validate addresses passed as parameters
-# if len(sys.argv) != 4: 
-#     print('Parámetros de ejecución inválidos, ejecución válida : ')
-#     print('python3 BaseDeDatos.py < NÚMERO_SEDE > < DIRECCIÓN_REP_FRONTEND > < DIRECCIÓN_PUB_REPLICAS_RESPALDO >') 
-#     exit()
+# Validate addresses passed as parameters
+if len(sys.argv) != 4: 
+    print('Parámetros de ejecución inválidos, ejecución válida : ')
+    print('python3 BaseDeDatos.py < NÚMERO_SEDE > < DIRECCIÓN_REP_FRONTEND > < DIRECCIÓN_PUB_REPLICAS_RESPALDO >') 
+    exit()
 
-# #------------------------------------------------
-# #                Variables 
-# #------------------------------------------------
-# branch = sys.argv[1]
-# rep_frontend_address = sys.argv[2]
-# pub_replicas_address = sys.argv[3]
+#------------------------------------------------
+#                Variables 
+#------------------------------------------------
+branch = sys.argv[1]
+rep_frontend_address = sys.argv[2]
+pub_replicas_address = sys.argv[3]
 
-database_book_id = dict()
-database_book_name = dict()
+library = []
 ejemplares_disponibles = dict()
 
 backup_replicas = 0
@@ -67,52 +66,32 @@ backup_replicas = 0
 #------------------------------------------------
 #                 Configurations
 #------------------------------------------------
-# # Context
-# context = zmq.Context()
+# Context
+context = zmq.Context()
 
-# # Socket to receive requests from Front End
-# rep_frontend_socket = context.socket( zmq.REP )
-# rep_frontend_socket.bind( f'tcp://*:9999' )
+# Socket to receive requests from Front End
+rep_frontend_socket = context.socket( zmq.REP )
+rep_frontend_socket.bind( f'tcp://*:9999' )
 
-# # Socket to publish to backup replicas 
-# pub_replicas_socket = context.socket( zmq.PUB )
-# pub_replicas_socket.bind( 'tcp://*:9950' )
+# Socket to publish to backup replicas 
+pub_replicas_socket = context.socket( zmq.PUB )
+pub_replicas_socket.bind( 'tcp://*:9950' )
 
-# # Socket to subscribe to backup replicas
-# sub_replicas_socket = context.socket( zmq.SUB )
+# Socket to subscribe to backup replicas
+sub_replicas_socket = context.socket( zmq.SUB )
 
-# # Socket to register process
-# register_socket = context.socket( zmq.REQ )
-# register_socket.connect( 'tcp://25.0.228.65:6000' )
+# Socket to register process
+register_socket = context.socket( zmq.REQ )
+register_socket.connect( 'tcp://25.0.228.65:6000' )
 
 
 # Read the initial state of the DataBase
-# Open file
 data_base = open('BaseDeDatos.txt', 'r')
-# Read file 
-line = 1
 for single_book_info in data_base: 
-    # Don't read the first line
-    if line == 1: 
-        line += 1
-        continue
-    else: 
-        line += 1
-
     # Get book parameters 
     id_libro, id_ejemplar, nombre, autor, estado, fecha_prestamo, fecha_devolucion, sede_prestamo = single_book_info.split(',')
-    # Create dates if book available
-    loan_date = fecha_prestamo 
-    return_date = fecha_devolucion
-    if estado == 'prestado': 
-        fecha_prestamo = fecha_prestamo.split('-')
-        loan_date = datetime.datetime(int(fecha_prestamo[0]), int(fecha_prestamo[1]), int(fecha_prestamo[2]))
-        fecha_devolucion = fecha_devolucion.split('-')
-        return_date = datetime.datetime(int(fecha_devolucion[0]), int(fecha_devolucion[1]), int(fecha_devolucion[2]))
-    # Save book by id
-    database_book_id[id_libro] = Libro(id_libro, id_ejemplar, nombre, autor, estado, loan_date, return_date, sede_prestamo)
-    # Save book by name 
-    database_book_name[nombre] = Libro(id_libro, id_ejemplar, nombre, autor, estado, loan_date, return_date, sede_prestamo) 
+    # Save book
+    library.append( Libro(id_libro, id_ejemplar, nombre, autor, estado, fecha_prestamo, fecha_devolucion, sede_prestamo) )
 
     # If book isn't available, continue
     if estado == 'prestado': 
@@ -123,75 +102,98 @@ for single_book_info in data_base:
         ejemplares_disponibles[id_libro] = 1
     else: 
         ejemplares_disponibles[id_libro] += 1
-
 # Eof
 
 #------------------------------------------------
 #                 Functions
 #------------------------------------------------
-def handle_database_modification(operation: str, book: str): 
-    # Search book 
-    name = False
-    id = False
-    if book in database_book_name: 
-        name = True
-    else: 
-        id = True
-
+def handle_database_modification(operation: str, book: str, branch: str): 
+    # If is a return operation
     if operation == 'devolucion':
-        if id_search: 
-            book_id = int( book )
-            library_database[ book_id ].available_quantity = int(library_database[ book_id ].available_quantity) + 1
-            library_database[ book_id ].available_quantity = str(library_database[ book_id ].available_quantity) + '\n'
-            print(library_database[ book_id ].name)
-        else: 
-            for i in range(0, len(library_database)): 
-                if library_database[ i ].name == book:
-                    library_database[ i ].available_quantity = int(library_database[ i ].available_quantity) + 1
-                    library_database[ i ].available_quantity = str(library_database[ i ].available_quantity) + '\n'
-
+        # Search book 
+        book_found = False
+        for current_book in library: 
+            if (current_book.nombre == book or current_book.id_libro) and current_book.estado == 'prestado': 
+                print(current_book)
+                # Modify current book 
+                current_book.estado = 'disponible'
+                current_book.fecha_prestamo = '_'
+                current_book.fecha_devolucion = '_'
+                current_book.sede_prestamo = '_\n'
+                print(current_book)
+                # Add one to available books
+                ejemplares_disponibles[current_book.id] += 1  
+                book_found = True
+                break
+        if not book_found: 
+            print('Solicitud de devolución, libro no encontrado')
+            return 'Solicitud de devolución, libro no encontrado' 
+                
+    # If is a renew operation 
     elif operation == 'renovacion':
-        if id_search: 
-            pass
-        else: 
-            pass
+        # Search book 
+        book_found = False 
+        for current_book in library: 
+            if (current_book.nombre == book or current_book.id_libro) and current_book.estado == 'prestado': 
+                # Modify current book 
+                year, month, day = current_book.fecha_devolucion.split('-')
+                fecha_devolucion = datetime.date( int(year), int(month), int(day) ).strftime('%y-%m-%d')
+                fecha_devolucion = datetime.datetime.strptime(fecha_devolucion, '%y-%m-%d') + datetime.timedelta(days=7)
+                current_book.fecha_devolucion = fecha_devolucion.strftime('%y-%m-%d')
+                book_found = True
+                break
+        if not book_found: 
+            print('Renovación de préstamo, libro no encontrado')
+            return 'Renovación de préstamo, libro no encontrado' 
 
+    # If is a request operation 
     elif operation == 'solicitud':
-        if id_search: 
-            book_id = int( book ) 
-            if int(library_database[ book_id ].available_quantity) >= 1: 
-                library_database[ book_id ].available_quantity = int(library_database[ book_id ].available_quantity) - 1
-                library_database[ book_id ].available_quantity = str(library_database[ book_id ].available_quantity) + '\n'
-            else: 
-                print('Cantidad de ejemplares insuficientes.')
-        else: 
-            for i in range(0, len(library_database)): 
-                if library_database[ i ].name == book:
-                    if int(library_database[ i ].available_quantity) >= 1: 
-                        library_database[ i ].available_quantity = int(library_database[ i ].available_quantity) - 1
-                        library_database[ i ].available_quantity = str(library_database[ i ].available_quantity) + '\n'
-                    else: 
-                        print('Cantidad de ejemplares insuficientes.')
+        # Search book 
+        book_found = False 
+        for i in range(0, len(library)): 
+            if (library[ i ].nombre == book or library[ i ].id_libro == book) and library[ i ].estado == 'disponible':
+                print('Libro encontrado', library[i].nombre, library[i].id_ejemplar)
+                print('Ejemplares : ', ejemplares_disponibles[library[i].id_libro])
+                # Validate available books
+                if ejemplares_disponibles[library[ i ].id_libro] >= 1: 
+                    ejemplares_disponibles[library[ i ].id_libro] -= 1
+                    library[ i ].estado = 'prestado'
+                    library[ i ].fecha_prestamo = datetime.datetime.today().strftime('%y-%m-%d')
+                    return_date = datetime.datetime.strptime(datetime.datetime.today().strftime('%y-%m-%d'), '%y-%m-%d') + datetime.timedelta(days=7)
+                    library[ i ].fecha_devolucion = return_date.strftime('%y-%m-%d')
+                    library[ i ].sede_prestamo = branch + '\n'
+                    book_found = True
+                    break
+                else: 
+                    print('No hay ejemplares disponibles')
+                    book_found = True
+                    return 'No hay ejemplares disponibles para realizar el prestamo'
+
+        if not book_found: 
+            print('Solicitud de préstamo, libro no encontrado')
+            return 'Solicitud de préstamo, libro no encontrado'  
+
 
     # Override file with new data 
     data_base = open('BaseDeDatos.txt', 'w')
-    data_base.write('# Id, Nombre_Libro, Autor, Ejemplares_Disponibles \n')
-    for single_book_info in library_database: 
-        book_name = single_book_info.name
-        book_id = single_book_info.id
-        authors = single_book_info.authors
-        available_quantity = single_book_info.available_quantity
-        # Don't write first book 
-        if book_id == 0: 
-            continue
-        # Otherwise, write book
-        new_book = str(book_id) + ',' + book_name + ',' + authors + ',' + str(available_quantity)
+    # data_base.write('# Id, Nombre_Libro, Autor, Ejemplares_Disponibles \n')
+    for single_book_info in library: 
+        id_libro = single_book_info.id_libro
+        id_ejemplar = single_book_info.id_ejemplar
+        nombre = single_book_info.nombre 
+        autor = single_book_info.autor
+        estado = single_book_info.estado
+        fecha_prestamo = single_book_info.fecha_prestamo 
+        fecha_devolucion = single_book_info.fecha_devolucion  
+        sede_prestamo = single_book_info.sede_prestamo  
+        # Write book
+        new_book = id_libro + ',' + id_ejemplar + ',' + nombre + ',' + autor + ',' + estado + ',' + str(fecha_prestamo) + ',' + str(fecha_devolucion) + ',' + sede_prestamo
         data_base.write( new_book ) 
     # Close Data Base
     data_base.close()
 
     # Publish message to modify DB to backup replicas   
-    message = operation + ',' + book
+    message = operation + ',' + book + ',' + branch
     pub_replicas_socket.send( message.encode('utf-8') )
 
     # Wait for all backup replicas response 
@@ -201,6 +203,9 @@ def handle_database_modification(operation: str, book: str):
         message = sub_replicas_socket.recv().decode('utf-8')
         print('Replica de respaldo dice [%s]' % message)
         quantity_backup_replicas -= 1
+    
+    # Succesfull message
+    return 'Modificación de la base de datos exitosa'
 
 
 def request_needed_addresses(): 
@@ -265,12 +270,12 @@ if __name__ == '__main__':
         request_needed_addresses()
         print('Terminado.')
         # Get request parameters
-        operation, book = frontend_req.split(',')
+        operation, book, branch = frontend_req.split(',')
         # Handle operation
-        handle_database_modification( operation, book ) 
+        message = handle_database_modification( operation, book, branch ) 
 
         # ---------- Reply to Front End -----------
-        rep_frontend_socket.send('ok'.encode('utf-8'))
+        rep_frontend_socket.send(message.encode('utf-8'))
 
     # Eow
 

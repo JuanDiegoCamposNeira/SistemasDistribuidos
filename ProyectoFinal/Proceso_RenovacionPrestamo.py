@@ -63,9 +63,7 @@ register_socket.connect( 'tcp://25.0.228.65:6000' )
 #------------------------------------------------
 #                 Functions
 #------------------------------------------------
-# This function will handle the process of returning a book 
-def modifyDatabaseDistributed(book: str):
-    pass
+
 
 #------------------------------------------------
 #                Main 
@@ -113,7 +111,7 @@ if __name__ == '__main__':
         #----------  Wait request from 'GestorDeCarga'  ----------
         print('Esperado solicitud ... ')
         request = sub_load_manager_socket.recv().decode('utf-8')
-        _, book = request.split(',')
+        _, book, branch = request.split(',')
         print('Solicitud recibida')
 
         #----------  Handle request  ----------- 
@@ -130,9 +128,7 @@ if __name__ == '__main__':
 
         # Modify DataBase
         print('Enviando solicitud a réplica primaria ...')
-        # modifyDatabaseDistributed(book)
-        # book = '12'
-        message = 'renovacion,' + book
+        message = 'renovacion,' + book + ',' + branch
         req_primary_replica_socket.send( message.encode('utf-8') )
         print('Envidada.')
         print('Esperando respuesta de réplica primaria ...')
@@ -146,7 +142,7 @@ if __name__ == '__main__':
 
         #---------------  Reply to 'GestorDeCarga'  ---------------
         print('Enviando respuesta a Gestor de carga ...')
-        pub_load_manager_socket.send('Process finished'.encode('utf-8'))
+        pub_load_manager_socket.send(response.encode('utf-8'))
         print('Respuesta enviada.')
 
     # Eow

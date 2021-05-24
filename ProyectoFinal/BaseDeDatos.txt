@@ -1,9 +1,9 @@
 id_libro,id_ejemplar,nombre_libro,autor,estado,fecha_préstamo,fecha_devolución,sede
-001,001,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,2021-5-20,2021-5-27,1
-001,002,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,disponible,_,_,_
+001,001,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,2021-5-20,21-06-17,1
+001,002,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,21-05-24,21-05-31,1
 001,003,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,2021-5-21,2021-5-28,1
 001,004,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,2021-5-20,2021-5-27,2
-001,005,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,disponible,_,_,_
+001,005,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,21-05-24,21-05-31,1
 002,001,The Caine Prize for African Writing 2010: 11th Annual Collection,The Caine Prize for African Writing,disponible,_,_,_
 002,002,The Caine Prize for African Writing 2010: 11th Annual Collection,The Caine Prize for African Writing,disponible,_,_,_
 002,003,The Caine Prize for African Writing 2010: 11th Annual Collection,The Caine Prize for African Writing,disponible,_,_,_

@@ -53,13 +53,13 @@ register_socket.connect( 'tcp://25.0.228.65:6000' )
 #------------------------------------------------
 #               Functions 
 #------------------------------------------------
-def handle_request(request_type: str, book: str) -> bool:
+def handle_request(request_type: str, book: str, branch: str) -> str:
     # Define topic
     topic = request_type
     # Define message
     message_data = book
     # Create information string
-    information = '%s,%s' % (topic, message_data)
+    information = '%s,%s,%s' % (topic, message_data, branch)
     # Publish message
     print('Publicando mensaje ...')
     pub_processes_socket.send( information.encode('utf-8') )
@@ -69,7 +69,7 @@ def handle_request(request_type: str, book: str) -> bool:
     process_response = sub_processes_socket.recv().decode('utf-8')
     print('Respuesta proceso [%s]' % process_response)
     # Return on success
-    return True
+    return process_response
 
 #------------------------------------------------
 #                Main 
@@ -116,18 +116,13 @@ if __name__ == '__main__':
             exit()
 
         #-----------   Handle request   ------------
-        success = False
         # Handle request
-        success = handle_request(request_type, book) 
+        response = handle_request(request_type, book, branch) 
 
         #------------   Reply to client   -----------
-        if not success: 
-            response = 'Algo salio mal en el lado del servidor'.encode('utf-8')
-        else: 
-            response = 'Procedimiento terminado'.encode('utf-8')
         # Send information in socket
         print('Enviando respuesta al cliente ... ')
-        client_socket.send( response )
+        client_socket.send( response.encode('utf-8') )
         print('Enviada.')
     # Eow
 
