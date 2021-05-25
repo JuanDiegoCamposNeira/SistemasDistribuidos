@@ -1,6 +1,6 @@
 id_libro,id_ejemplar,nombre_libro,autor,estado,fecha_préstamo,fecha_devolución,sede
-001,001,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,2021-5-20,21-06-17,1
-001,002,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,21-05-24,21-05-31,1
+001,001,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,disponible,_,_,_
+001,002,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,disponible,_,_,_
 001,003,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,2021-5-21,2021-5-28,1
 001,004,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,2021-5-20,2021-5-27,2
 001,005,Opening Spaces: An Anthology of Contemporary African Women's Writing,Yvonne Vera,prestado,21-05-24,21-05-31,1
@@ -40,14 +40,14 @@ id_libro,id_ejemplar,nombre_libro,autor,estado,fecha_préstamo,fecha_devolución
 007,004,Introduction to African Oral Literature and Performance,Bayo Ogunjimi,prestado,2021-5-20,2021-5-27,1
 007,005,Introduction to African Oral Literature and Performance,Bayo Ogunjimi,prestado,2021-5-22,2021-5-29,2
 007,006,Introduction to African Oral Literature and Performance,Bayo Ogunjimi,disponible,_,_,1
-008,001,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,prestado,2021-5-22,2021-5-29,2
-008,002,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,prestado,2021-5-20,2021-5-27,1
-008,003,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,prestado,2021-5-23,2021-5-30,1
+008,001,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,disponible,_,_,_
+008,002,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,disponible,_,_,_
+008,003,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,disponible,_,_,_
 008,004,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,prestado,2021-5-20,2021-5-27,1
 008,005,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,prestado,2021-5-20,2021-5-27,2
 008,006,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,prestado,2021-5-20,2021-5-27,2
 008,007,Violence in Francophone African and Caribbean Women's Literature,Marie-Chantal Kalisa,prestado,2021-5-22,2021-5-29,1
-009,001,Oral Epics from Africa,John William Johnson,prestado,2021-5-20,2021-5-27,2
+009,001,Oral Epics from Africa,John William Johnson,prestado,2021-5-20,21-06-03,2
 009,002,Oral Epics from Africa,John William Johnson,prestado,2021-5-22,2021-5-29,1
 009,003,Oral Epics from Africa,John William Johnson,prestado,2021-5-20,2021-5-27,1
 009,004,Oral Epics from Africa,John William Johnson,prestado,2021-5-22,2021-5-29,2
@@ -55,7 +55,7 @@ id_libro,id_ejemplar,nombre_libro,autor,estado,fecha_préstamo,fecha_devolución
 009,006,Oral Epics from Africa,John William Johnson,prestado,2021-5-20,2021-5-27,2
 010,001,African Fundamentalism: A Literary and Cultural Anthology of Garvey's Harlem Renaissance,Tony Martin,prestado,2021-5-22,2021-5-29,2
 011,001,Land Apart: A South African Reader,Various,prestado,2021-5-23,2021-5-30,2
-012,001,Women Writing Africa: The Eastern Region,Amandina Lihamba,disponible,_,_,_
+012,001,Women Writing Africa: The Eastern Region,Amandina Lihamba,prestado,21-05-24,21-05-31,1
 013,001,Nobody Ever Said AIDS: Poems and Stories from Southern Africa,Nobantu Rasebotsa,disponible,_,_,_
 014,001,Step into a World: A Global Anthology of the New Black Literature,Kevin Powell,disponible,_,_,_
 015,001,An Anthology of Interracial Literature: Black-White Contacts in the Old World and the New,Werner Sollors,disponible,_,_,_
@@ -528,7 +528,7 @@ id_libro,id_ejemplar,nombre_libro,autor,estado,fecha_préstamo,fecha_devolución
 482,001,American Reader,Kathy-jo Wargin,disponible,_,_,_
 483,001,Every Shut Eye Ain't Asleep,Michael S. Harper,disponible,_,_,_
 484,001,Moment's Notice: Jazz in Poetry and Prose,Art Lange,disponible,_,_,_
-485,001,Literary Nashville,Patrick Allen,disponible,_,_,_
+485,001,Literary Nashville,Patrick Allen,prestado,21-05-24,21-05-31,2
 486,001,Screaming Monkeys: Critiques of Asian American Images,M. Evelina Galang,disponible,_,_,_
 487,001,Imagination And Spirit,J. Brent Bill,disponible,_,_,_
 488,001,Writings: The Autobiography of an Ex-Colored Man. Along This Way. Essays and Editorials. Selected Poems,James Weldon Johnson,disponible,_,_,_
@@ -541,7 +541,7 @@ id_libro,id_ejemplar,nombre_libro,autor,estado,fecha_préstamo,fecha_devolución
 495,001,At Home on the Earth: Becoming Native to Our Place,David Landis Barnhill,disponible,_,_,_
 496,001,Wines in the Wilderness: Plays by African American Women from the Harlem Renaissance to the Present,Elizabeth Brown-Guillory,disponible,_,_,_
 497,001,Stand Up Poetry: An Expanded Anthology,Charles Harper Webb,prestado,2021-5-22,2021-5-29,1
-498,001,First Thought Best Thought,Allen Ginsberg,prestado,2021-5-21,2021-5-28,2
+498,001,First Thought Best Thought,Allen Ginsberg,prestado,2021-5-21,21-06-04,2
 499,001,For She Is the Tree of Life: Grandmothers Through the Eyes of Women Writers,Valerie Kack-Brice,prestado,2021-5-21,2021-5-28,2
 500,001,White Lines: Writers on Cocaine,Geno Zanetti,disponible,_,_,_
 018,002,Love Child,Gcina Mhlophe,prestado,21-05-24,21-05-31,1

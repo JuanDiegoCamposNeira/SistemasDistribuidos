@@ -102,7 +102,10 @@ def handle_database_modification(operation: str, book: str, branch: str):
                 current_book.sede_prestamo = '_\n'
                 print(current_book)
                 # Add one to available books
-                ejemplares_disponibles[current_book.id_libro] += 1  
+                if not current_book.id_libro in ejemplares_disponibles: 
+                    ejemplares_disponibles[current_book.id_libro] = 1  
+                else: 
+                    ejemplares_disponibles[current_book.id_libro] += 1  
                 book_found = True
                 break
         if not book_found: 
