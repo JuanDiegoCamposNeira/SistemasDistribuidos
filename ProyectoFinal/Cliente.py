@@ -97,9 +97,17 @@ if __name__ == '__main__':
     # response = register_socket.recv().decode('utf-8')
     # print('BRANCHES : ', response)
 
+    # Read client input
+    client_input = open('peticiones_cliente.txt', 'r')
+
     # Ask user for action he wants to perform 
     option = True
-    while option: 
+    for input in client_input:  
+    # while option:
+        branch, book_option, book, option = input.split(',')
+        branch = int(branch)
+        book_option = int(book_option)
+        option = int(option) 
         # ------------------  Branch to make request  ------------------
         print('-----------------------------------------------------')
         print('\t Bienvenido al sistema de biblioteca ')
@@ -108,7 +116,8 @@ if __name__ == '__main__':
         print('0. Salir del sistema')
         print('1. Sede # 1')
         print('2. Sede # 2')
-        branch = int(input('$ '))
+        # branch = int(input('$ '))
+        # branch = client_input.read()
 
         # Connect the socket to the corresponding IPv4 branch 
         if branch == 0: 
@@ -141,28 +150,31 @@ if __name__ == '__main__':
             continue
 
         # ---------------------     Book option     ---------------------
-        book = ''
+        # book = ''
         print('-------------------------------------------')
         print('¿Cómo desea ingresar el libro, Id o nombre?')
         print('-------------------------------------------')
         print('0. Salir del sistema')
         print('1. Id')
         print('2. Nombre')
-        book_option = int(input('$ '))
+        # book_option = int(input('$ '))
+        # book_option = client_input.read()
 
         if book_option == 0: 
             option = False
             continue 
         elif book_option == 1: 
-            book = input('Digite el id del libro : ')
+            # book = input('Digite el id del libro : ')
             # Validate Id
-            pattern = r'^[0-9]{3}$'
-            is_id_valid = re.fullmatch(pattern, book)
-            if is_id_valid == None: 
-                print('Id no valido, Id Libro consiste de 3 dígitos')
-                continue
+            # pattern = r'^[0-9]{3}$'
+            # is_id_valid = re.fullmatch(pattern, book)
+            # if is_id_valid == None: 
+            #     print('Id no valido, Id Libro consiste de 3 dígitos')
+            #     continue
+            pass
         elif book_option == 2: 
-            book = input('Ingrese el nombre del libro : ')
+            # book = input('Ingrese el nombre del libro : ')
+            pass
         else: 
             print_warning('Opción no valida, las únicas posibles opciones son 0, 1 o 2')
             continue
@@ -175,7 +187,8 @@ if __name__ == '__main__':
         print('1. Solicitar el prestamo de un libro')
         print('2. Renovar el prestamo de un libro')
         print('3. Devolver un libro')
-        option = int(input('$ '))
+        # option = int(input('$ '))
+        # option = client_input.read()
 
         # Validate user's input action
         if not option or option == 0: 
@@ -183,7 +196,10 @@ if __name__ == '__main__':
             print('Ha salido del sistema correctamente')
             continue
     
-        if option == 1:
+        book = str(book)
+        branch = int(branch)
+        print('LIBRO [ %s ] BRANCH [ %d ] ' % ( book, branch ))
+        if option == 1: 
             current_socket_connection = handle_client_request('PrestamoLibro', book, branch, current_socket_connection)
         elif option == 2: 
             current_socket_connection = handle_client_request('RenovarLibro', book, branch, current_socket_connection)

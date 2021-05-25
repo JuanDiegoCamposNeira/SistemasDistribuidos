@@ -113,8 +113,7 @@ def handle_database_modification(operation: str, book: str, branch: str):
         # Search book 
         book_found = False
         for current_book in library: 
-            if (current_book.nombre == book or current_book.id_libro) and current_book.estado == 'prestado': 
-                print(current_book)
+            if (current_book.nombre == book or current_book.id_libro == book) and current_book.estado == 'prestado': 
                 # Modify current book 
                 current_book.estado = 'disponible'
                 current_book.fecha_prestamo = '_'
@@ -122,7 +121,7 @@ def handle_database_modification(operation: str, book: str, branch: str):
                 current_book.sede_prestamo = '_\n'
                 print(current_book)
                 # Add one to available books
-                ejemplares_disponibles[current_book.id] += 1  
+                ejemplares_disponibles[current_book.id_libro] += 1  
                 book_found = True
                 break
         if not book_found: 
@@ -134,7 +133,7 @@ def handle_database_modification(operation: str, book: str, branch: str):
         # Search book 
         book_found = False 
         for current_book in library: 
-            if (current_book.nombre == book or current_book.id_libro) and current_book.estado == 'prestado': 
+            if (current_book.nombre == book or current_book.id_libro == book) and current_book.estado == 'prestado': 
                 # Modify current book 
                 year, month, day = current_book.fecha_devolucion.split('-')
                 fecha_devolucion = datetime.date( int(year), int(month), int(day) ).strftime('%y-%m-%d')
@@ -150,23 +149,22 @@ def handle_database_modification(operation: str, book: str, branch: str):
     elif operation == 'solicitud':
         # Search book 
         book_found = False 
-        for i in range(0, len(library)): 
-            if (library[ i ].nombre == book or library[ i ].id_libro == book) and library[ i ].estado == 'disponible':
-                print('Libro encontrado', library[i].nombre, library[i].id_ejemplar)
-                print('Ejemplares : ', ejemplares_disponibles[library[i].id_libro])
+        for current_book in library: 
+            
+            if (current_book.nombre == book or current_book.id_libro == book) and current_book.estado == 'disponible':
+                print('Ejemplares : ', ejemplares_disponibles[current_book.id_libro])
                 # Validate available books
-                if ejemplares_disponibles[library[ i ].id_libro] >= 1: 
-                    ejemplares_disponibles[library[ i ].id_libro] -= 1
-                    library[ i ].estado = 'prestado'
-                    library[ i ].fecha_prestamo = datetime.datetime.today().strftime('%y-%m-%d')
+                if ejemplares_disponibles[current_book.id_libro] >= 1: 
+                    ejemplares_disponibles[current_book.id_libro] -= 1
+                    current_book.estado = 'prestado'
+                    current_book.fecha_prestamo = datetime.datetime.today().strftime('%y-%m-%d')
                     return_date = datetime.datetime.strptime(datetime.datetime.today().strftime('%y-%m-%d'), '%y-%m-%d') + datetime.timedelta(days=7)
-                    library[ i ].fecha_devolucion = return_date.strftime('%y-%m-%d')
-                    library[ i ].sede_prestamo = branch + '\n'
+                    current_book.fecha_devolucion = return_date.strftime('%y-%m-%d')
+                    current_book.sede_prestamo = branch + '\n'
                     book_found = True
                     break
                 else: 
                     print('No hay ejemplares disponibles')
-                    book_found = True
                     return 'No hay ejemplares disponibles para realizar el prestamo'
 
         if not book_found: 
@@ -275,7 +273,7 @@ if __name__ == '__main__':
         message = handle_database_modification( operation, book, branch ) 
 
         # ---------- Reply to Front End -----------
-        rep_frontend_socket.send(message.encode('utf-8'))
+        rep_frontend_socket.send( message.encode('utf-8') )
 
     # Eow
 

@@ -11,6 +11,7 @@
 import sys
 import time
 import zmq
+import datetime
 
 #------------------------------------------------
 #                 Classes
@@ -92,7 +93,7 @@ def handle_database_modification(operation: str, book: str, branch: str):
         # Search book 
         book_found = False
         for current_book in library: 
-            if (current_book.nombre == book or current_book.id_libro) and current_book.estado == 'prestado': 
+            if (current_book.nombre == book or current_book.id_libro == book) and current_book.estado == 'prestado': 
                 print(current_book)
                 # Modify current book 
                 current_book.estado = 'disponible'
@@ -101,7 +102,7 @@ def handle_database_modification(operation: str, book: str, branch: str):
                 current_book.sede_prestamo = '_\n'
                 print(current_book)
                 # Add one to available books
-                ejemplares_disponibles[current_book.id] += 1  
+                ejemplares_disponibles[current_book.id_libro] += 1  
                 book_found = True
                 break
         if not book_found: 
@@ -113,7 +114,7 @@ def handle_database_modification(operation: str, book: str, branch: str):
         # Search book 
         book_found = False 
         for current_book in library: 
-            if (current_book.nombre == book or current_book.id_libro) and current_book.estado == 'prestado': 
+            if (current_book.nombre == book or current_book.id_libro == book) and current_book.estado == 'prestado': 
                 # Modify current book 
                 year, month, day = current_book.fecha_devolucion.split('-')
                 fecha_devolucion = datetime.date( int(year), int(month), int(day) ).strftime('%y-%m-%d')
@@ -171,6 +172,9 @@ def handle_database_modification(operation: str, book: str, branch: str):
     # Close Data Base
     data_base.close()
 
+    # Return succsefull 
+    return 'Modificación base de datos terminada'
+
 
 #------------------------------------------------
 #                   Main 
@@ -217,9 +221,8 @@ if __name__ == '__main__':
 
         # ----- Publish message to primary replica -----
         print('Enviando respuesta a la réplica primaria ...')
-        # print(pub_primary_replica_address)
         time.sleep( 1 )
-        pub_primary_replica_socket.send(message.encode('utf-8'))
+        pub_primary_replica_socket.send( message.encode('utf-8') )
 
     # Eow
 # Eom
