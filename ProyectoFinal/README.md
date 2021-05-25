@@ -18,7 +18,7 @@ el manejo de réplicas y la tolerancia a fallas <a href='https://youtu.be/PxDwbM
   Nota : se debe remplazar "\<sede\>" con la dirección IPv4 de la máquina en donde se está corriendo el proceso
 #### Gestor de carga (Principal)
   - <code> python3 GestorDeCarga.py \<sede\>:3000 \<sede\>:5551 \<sede\> </code> 
-#### Gestor de carga (Principal)
+#### Gestor de carga (Respaldo en caso que el principal falle)
   - <code> python3 GestorDeCarga.py \<sede\>:2999 \<sede\>:5550 \<sede\> </code> 
 #### Coordinador
   - <code> python3 Coordinador.py </code> 
